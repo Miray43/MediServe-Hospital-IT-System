@@ -2,6 +2,8 @@
 
 MediServe is a web system for a hospital's technical-support team. It tracks the hospital's IT devices (PCs, printers, scanners) across departments and floors, and manages maintenance and support tickets for them from start to finish.
 
+> 👥 **Team project.** I worked on it as a full-stack developer, across the frontend, the Express/MySQL backend and the database. The original team repository is [Miray43/Mediserve](https://github.com/Miray43/Mediserve). This repo is a cleaned-up portfolio version: secrets removed, setup documented.
+
 ## Features
 
 - **Device management**: register devices with their specifications (CPU, RAM, OS, processor generation, model) per department.
@@ -58,4 +60,5 @@ MediServe is a web system for a hospital's technical-support team. It tracks the
 
 ## Author
 
-**Mira Alharbi**
+**Mira Alharbi**: Full-stack developer (team project)
+
