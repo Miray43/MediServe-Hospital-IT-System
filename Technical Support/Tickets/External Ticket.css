@@ -1,0 +1,360 @@
+/* Reset page styles */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    text-align: center;
+}
+
+/* Shared styling for Home and Back buttons */
+.back-button,
+.home-button {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  height: 150px;
+}
+
+/* Back button aligned to the left */
+.back-button {
+  left: 20px;
+}
+
+/* Home button centered horizontally */
+.home-button {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* Link styles inside buttons */
+.back-button a,
+.home-button a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Text color for back link */
+.back-button a {
+  color: #4A5568;
+}
+
+/* Text color for home link */
+.home-button a {
+  color: #3BAAE0;
+}
+
+/* Icon size inside buttons */
+.back-icon,
+.home-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/* Logos section (header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* MS logo on the left */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+.ms-logo img {
+    width: 120px;
+}
+
+/* Hospital logo on the right */
+.hospital-logo {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+.hospital-logo img {
+    height: 50px;
+}
+/* Upload box styling */
+.upload-box {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+  
+  /* Hover effect for upload box */
+  .upload-box:hover,
+  .drag-over {
+    background-color: #f9f9f9;
+    border-color: #333;
+  }
+  
+  /* Upload icon inside box */
+  .upload-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  /* File format info text */
+  .file-format-info {
+    font-size: 12px;
+    color: #999;
+  }
+  
+/* Main form container */
+.ticket-container {
+    background-color: white;
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.18);
+    text-align: left;
+}
+
+/* Form titles */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 30px;
+}
+
+/* Spacing between form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Field labels */
+label {
+    display: block;
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 5px;
+}
+
+/* Input, select, and textarea styling */
+input,
+select,
+textarea {
+    width: 96%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Fixed height for textarea */
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Submit button (blue color) */
+.submit-btn {
+    width: 100%;
+    background-color: #3BAAE0;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Press effect on submit button */
+.submit-btn:active {
+    background-color: #1E90FF;
+    transform: scale(0.98);
+}
+
+/* Priority icon (small colored icon next to priority label) */
+.priority-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+/* Priority selection (radio buttons inside flex container) */
+.priority-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Custom style for each priority option */
+.priority-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 12px 18px;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Active state for selected priority */
+.priority-options input[type="radio"]:checked + label {
+    background-color: #DFF6FF;
+    border-color: #3BAAE0;
+    font-weight: bold;
+}
+
+/* مربع البحث فوق الدروب داون */
+.search-input {
+    border: 1px solid black; /* ✅ بوردر أسود */
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+  /* الأيقونة الخاصة بالتعديل داخل الدروب ليست */
+  .edit-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+  }
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(calc(-50% + 2px));
+    z-index: 2;
+    cursor: pointer;
+  }
+  .trash-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(calc(-50% + 2px));
+    z-index: 2;
+    cursor: pointer;
+  }
+  /* جعل الـ search container يغطي العرض بالكامل */
+  .search-container {
+    width: 100%;
+    margin-bottom: 10px; /* مسافة عمودية بين مربع البحث وبقية المكونات */
+  }
+  
+  /* تنسيق مربع البحث بحيث يشبه قائمة الاختيارات */
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+   /* حاوية الدروب ليست */
+ .dropdown-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .dropdown-wrapper {
+    position: relative; /* 🔧 ضروري لربط الأيقونات بالمكان الصح */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* الايقونات جنب الدروب داون */
+  .icons-container {
+    position: absolute;
+    top: 50%; /* توسيط عمودي */
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 1;
+  }
+  
+  /* حتى ما يدخلوا فوق بعض */
+  .dropdown-wrapper select {
+    width: 100%;
+    padding-right: 80px; /* ⬅️ مساحة للأيقونات */
+    box-sizing: border-box;
+  }
+  
+  /* إظهار الـ select بشكل طبيعي */
+  .dropdown-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #EFEFEF;
+    box-sizing: border-box;
+  }
+.inline-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;  /* مسافة بسيطة بين الدروب داون والرسالة */
+    text-align: left;  /* محاذاة النص لليسار */
+  }
+
+/* Red color for required field indicator */
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive design: tablet view */
+@media screen and (max-width: 768px) {
+    .ticket-container {
+        width: 95%;
+    }
+
+    .priority-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* Responsive design: mobile view */
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 26px;
+    }
+
+    .priority-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+

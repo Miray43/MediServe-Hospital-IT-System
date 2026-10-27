@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Sets character encoding and page scaling for responsive design -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Page title -->
+  <title>Maintenance Report</title>
+  
+  <!-- Importing Google Fonts (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Linking external CSS file for styling -->
+  <link rel="stylesheet" href="report-details.CSS" />
+</head>
+<body>
+
+  <!-- Navigation buttons: Back and Home -->
+  <div class="nav-buttons">
+    <div class="back-button">
+      <a href="#" onclick="goBack()">
+        <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+      </a>
+    </div>
+    <div class="Home-button">
+      <a href="Home.html">
+        <img src="/icon/Home.png" alt="Home Icon" class="Home-icon"> Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Page header with logos -->
+  <header>
+    <div class="ms-logo">
+      <img src="/icon/MS Logo.png" alt="MS Logo">
+    </div>
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital">
+    </div>
+  </header>
+
+  <!-- Main container for the report content -->
+  <div class="container">
+    <div class="report-header">
+      <div>
+        <h2 id="report-title">Maintenance Report</h2>
+        <span class="status" id="report-status">...</span>
+        <p id="submitted-date" style="font-size: 13px; color: gray;"></p>
+      </div>
+      <div class="action-buttons">
+        <button class="download-btn">Download PDF</button>
+        <button class="edit-btn">Edit Report</button>
+        <button class="save-btn" style="display: none;">Save Changes</button>
+        <button class="close-btn">Close Report</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div><strong>Report ID</strong><br><span id="report-id" class="editable"></span></div>
+      <div><strong>Priority</strong><br><span id="priority" class="editable"></span></div>
+      <div><strong>Device Type</strong><br><span id="device-type" class="editable"></span></div>
+      <div><strong>Assigned To</strong><br><span id="assigned-to" class="editable"></span></div>
+      <div><strong>Department</strong><br><span id="department" class="editable"></span></div>
+      <div><strong>Category</strong><br><span id="category" class="editable"></span></div>
+    </div>
+
+    <div class="section-title">Description</div>
+    <div class="description" id="description"></div>
+
+    <div class="section-title">Device Specifications</div>
+    <div class="grid" id="device-specs"></div>
+    <div class="section-title">Attachment</div>
+    <div id="attachment-section" style="margin-bottom: 20px;"></div>
+    <input type="file" id="attachment-input" style="display: none;" />
+
+    <div class="section-title">Additional Notes</div>
+    <div class="note" id="note"></div>
+  </div>
+  
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="report-details.js"></script>
+
+  <div id="pdf-options-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;">
+    <div style="background:#fff; padding:20px; max-width:400px; margin:10% auto; border-radius:8px;">
+      <h3>Select Report Contents</h3>
+      <label><input type="checkbox" checked id="opt-priority"> Priority</label><br>
+      <label><input type="checkbox" checked id="opt-device-type"> Device Type</label><br>
+      <label><input type="checkbox" checked id="opt-description"> Description</label><br>
+      <label><input type="checkbox" checked id="opt-note"> Technical Notes</label><br>
+      <label><input type="checkbox" checked id="opt-signature"> Signature</label><br>
+      <label><input type="checkbox" checked id="opt-attachment"> Attachment</label><br>
+      <label><input type="checkbox" checked id="opt-specs"> Device Specs</label><br><br>
+      <button id="generate-pdf-btn">Generate PDF</button>
+      <button onclick="document.getElementById('pdf-options-modal').style.display='none'">Cancel</button>
+    </div>
+  </div>
+  
+
+</body>
+</html>

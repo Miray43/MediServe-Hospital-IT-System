@@ -1,0 +1,117 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+}
+.back-button, .Home-button {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    height: 150px;
+}
+.back-button {
+    left: 20px;
+}
+.Home-button {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.back-button a, .Home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.back-button a {
+    color: #4A5568;
+}
+.Home-button a {
+    color: #3BAAE0;
+}
+.back-icon, .Home-icon {
+    width: 20px;
+    height: 20px;
+}
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    text-align: left;
+    max-width: 1000px; /* نفس عرض المربعات */
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+.ms-logo img {
+    width: 120px;
+}
+.hospital-logo {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+.hospital-logo img {
+    height: 50px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease-in-out;
+}
+.box:hover {
+    background: linear-gradient(135deg, #172F4A, #3BAAE0);
+    color: white;
+    transform: scale(1.03);
+}
+
+.box img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.box:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.box h2 {
+    font-size: 18px;
+}
+.box p {
+    font-size: 14px;
+}

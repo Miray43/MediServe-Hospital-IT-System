@@ -1,0 +1,228 @@
+/* Reset page styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+}
+/* Back and Home buttons */
+.back-button, 
+.Home-button {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    height: 150px;
+}
+
+/* تصغير الأيقونة داخل زر "Back" */
+.back-button a .icon {
+    width: 15px;  /* تصغير الأيقونة إلى 15px */
+    height: 15px; /* تصغير الأيقونة إلى 15px */
+    object-fit: contain;
+}
+
+/* تصغير الأيقونة داخل زر "Home" */
+.Home-button a .icon {
+    width: 10px;  /* تصغير الأيقونة إلى 15px */
+    height: 10px; /* تصغير الأيقونة إلى 15px */
+    object-fit: contain;
+}
+
+
+.back-button {
+    left: 20px;
+}
+
+.Home-button {
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.back-button a,
+.Home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-button a {
+    color: #4A5568;
+}
+
+.Home-button a {
+    color: #3BAAE0;
+}
+
+/* Page title */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+/* MS Logo (left side) */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.ms-logo img {
+    width: 120px;
+}
+
+/* Hospital Logo (right side) */
+.hospital-logo {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+
+.hospital-logo img {
+    height: 50px;
+}
+
+/* Reports container */
+.reports-container {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+/* Reports options layout */
+.reports-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Option box styles */
+.option {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Option icon size */
+.icon-container img {
+    width: 70px;
+    transition: transform 0.3s;
+    margin-bottom: 10px;
+}
+
+/* Option title */
+.option h3 {
+    margin-bottom: 4px; /* المسافة بين العنوان والوصف */
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Option sub-title (description) */
+.option p {
+    font-size: 14px;
+    color: #6c757d; /* رمادي */
+    margin: 0;
+    text-align: center;
+}
+
+/* Hover effect */
+.option:hover {
+    background-color: #EFF6FF;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Click effect */
+.option:active {
+    background-color: #EFF6FF;
+}
+
+/* Responsive design for tablets */
+@media screen and (max-width: 768px) {
+    .back-button {
+        left: 10px;
+    }
+
+    .Home-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 24px;
+        margin-top: 120px;
+        margin-bottom: 50px;
+    }
+
+    .reports-container {
+        width: 90%;
+    }
+
+    .option {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 480px) {
+    .back-button {
+        left: 5px;
+    }
+
+    .Home-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 22px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    .reports-options {
+        flex-direction: column;
+        gap: 15px;
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+    }
+
+    .option {
+        width: 90%;
+    }
+}

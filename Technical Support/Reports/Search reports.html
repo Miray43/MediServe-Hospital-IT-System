@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports Dashboard</title>
+  <link rel="stylesheet" href="Search reports.css" />
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="ms-logo"><img src="/icon/Ms Logo.png" alt="MS Logo" /></div>
+    <div class="back-button">
+      <a href="#"><img src="/icon/Back.png" alt="Back Icon" class="back-icon" /> Back</a>
+    </div>
+    <div class="Home-button">
+      <a href="/Home/Home.html"><img src="/icon/Home.png" alt="Home Icon" class="home-icon" /> Home</a>
+    </div>
+    <div class="hospital-logo"><img src="/icon/hospital-logo.png" alt="Hospital Logo" /></div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Search bar -->
+    <div class="search-bar">
+      <div class="search-group">
+        <input type="text" id="search-input" placeholder="Search reports..." />
+      
+        <select id="filter-type">
+          <option value="">Report Types</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Ticket">Ticket</option>
+          <option value="New">New Report</option>
+        </select>
+        
+        <select id="filter-status">
+          <option value=""> Status</option>
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Closed">Closed</option>
+        </select>
+
+        <select id="filter-device-type">
+          <option value="">All Devices</option>
+          <option value="PC">PC</option>
+          <option value="Printer">Printer</option>
+          <option value="Scanner">Scanner</option>
+        </select>
+        
+        
+        <input type="date" id="filter-date-from" />
+        <input type="date" id="filter-date-to" />
+      </div>
+      
+      <button class="new-report-btn">New Report</button>
+    </div>
+
+    <!-- Report list -->
+    <div id="report-list" class="report-list">
+      <!-- JavaScript will dynamically insert reports here -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="page-btn" id="prev-btn">&lt;</button>
+      <button class="page-btn active" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn" data-page="3">3</button>
+      <button class="page-btn" data-page="4">4</button>
+      <button class="page-btn" id="next-btn">&gt;</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+   <script src="Reports.js"></script>
+  <script src="Search reports.js"></script>
+  <!-- <script src="submit-report.js"></script> -->
+</body>
+</html>

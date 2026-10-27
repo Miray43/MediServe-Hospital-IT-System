@@ -1,0 +1,469 @@
+/* Basic reset and layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9fafb;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+/* Wrapper container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Shared style for Home and Back buttons */
+.back-button,
+.home-button {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  height: 150px;
+}
+
+/* Back button aligned left */
+.back-button {
+  left: 20px;
+}
+
+/* Home button centered horizontally */
+.home-button {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* Links inside buttons */
+.back-button a,
+.home-button a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Link colors */
+.back-button a {
+  color: #4A5568;
+}
+
+.home-button a {
+  color: #3BAAE0;
+}
+
+/* Icons inside buttons */
+.back-icon,
+.home-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Header section with logos */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* MS logo positioning */
+.ms-logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.ms-logo img {
+  width: 120px;
+}
+
+/* Hospital logo positioning */
+.hospital-logo {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
+
+.hospital-logo img {
+  height: 50px;
+}
+
+/* Main ticket form container */
+.ticket-container {
+  background-color: white;
+  max-width: 600px;
+  margin: 70px auto;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+/* Ticket title and subtitle */
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin-bottom: 25px;
+}
+
+/* Spacing for form groups */
+.form-group {
+  margin-bottom: 18px;
+}
+
+/* Field labels */
+label {
+  display: block;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+/* Special styling for ticket number field */
+.disabled-input {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Style dropdowns */
+select {
+  background-color: #E5E7EB;
+  border: 1px solid #A1A1A1;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Input focus outline and shadow */
+input:focus, select:focus, textarea:focus {
+  border-color: #3BAAE0;
+  box-shadow: 0px 0px 5px rgba(59, 170, 224, 0.5);
+  outline: none;
+}
+
+/* General input, select, textarea styling */
+input,
+select,
+textarea {
+  width: 96%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Description textarea */
+textarea {
+  height: 70px;
+  resize: none;
+}
+
+/* Submit button style */
+.submit-btn {
+  width: 100%;
+  background-color: #3BAAE0;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Submit button interaction */
+.submit-btn:active {
+  background-color: #1E90FF;
+  transform: scale(0.98);
+}
+
+/* Priority selection layout */
+.priority-options {
+  display: flex;
+  gap: 120px;
+  justify-self: space-between;
+}
+
+/* Style for each priority option */
+.priority-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 10px 15px;
+  border: 1px solid #D1D5DB;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Highlight selected priority */
+.priority-options input[type="radio"]:checked + label {
+  background-color: #E0F2FE;
+  border-color: #3BAAE0;
+  font-weight: bold;
+}
+
+/* Required field marker */
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+/* Upload box styling */
+.upload-box {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+/* Hover effect for upload box */
+.upload-box:hover, .drag-over {
+  background-color: #f9f9f9;
+  border-color: #333;
+}
+
+/* Upload icon inside box */
+.upload-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* File format info text */
+.file-format-info {
+  font-size: 12px;
+  color: #999;
+}
+
+ /* حاوية الدروب ليست */
+ .dropdown-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+.dropdown-wrapper {
+  position: relative; /* 🔧 ضروري لربط الأيقونات بالمكان الصح */
+  display: flex;
+  align-items: center;
+}
+
+/* الايقونات جنب الدروب داون */
+.icons-container {
+  position: absolute;
+  top: 50%; /* توسيط عمودي */
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 1;
+}
+
+/* حتى ما يدخلوا فوق بعض */
+.dropdown-wrapper select {
+  width: 100%;
+  padding-right: 80px; /* ⬅️ مساحة للأيقونات */
+  box-sizing: border-box;
+}
+
+/* إظهار الـ select بشكل طبيعي */
+.dropdown-container select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #EFEFEF;
+  box-sizing: border-box;
+}
+
+
+
+/* مربع البحث فوق الدروب داون */
+.search-input {
+  border: 1px solid black; /* ✅ بوردر أسود */
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+}
+/* الأيقونة الخاصة بالتعديل داخل الدروب ليست */
+.edit-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+.search-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(calc(-50% + 2px));
+  z-index: 2;
+  cursor: pointer;
+}
+.trash-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(calc(-50% + 2px));
+  z-index: 2;
+  cursor: pointer;
+}
+/* جعل الـ search container يغطي العرض بالكامل */
+.search-container {
+  width: 100%;
+  margin-bottom: 10px; /* مسافة عمودية بين مربع البحث وبقية المكونات */
+}
+
+/* تنسيق مربع البحث بحيث يشبه قائمة الاختيارات */
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.popup-content input,
+.popup-content textarea {
+  width: 400px; /* قم بتعديل القيمة حسب الحاجة */
+  height:300px;
+  padding: 8px;
+  box-sizing: border-box; /* لضمان احتساب padding والحدود ضمن العرض المحدد */
+}
+/* Priority icon (small colored icon next to priority label) */
+.priority-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+/* Priority selection (radio buttons inside flex container) */
+.priority-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Custom style for each priority option */
+.priority-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  padding: 12px 18px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Active state for selected priority */
+.priority-options input[type="radio"]:checked + label {
+  background-color: #DFF6FF;
+  border-color: #3BAAE0;
+  font-weight: bold;
+}
+
+/*pop up*/
+.popup-modal {
+  display: none; /* نفعّله بـ JavaScript */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center; /* يوسّط أفقي */
+  align-items: center;     /* يوسّط عمودي */
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.popup-content label {
+  margin-top: 15px;
+  display: block;
+  font-size: 14px;
+  
+}
+
+.popup-content input, .popup-content select {
+  width: 100%;
+  height: 50%;
+  margin: 5px auto;
+  padding: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.popup-buttons button {
+  padding: 5px 10px;
+  font-size: 14px;
+  width: auto;
+  min-width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3BAAE0;
+  color: white; /* ✅ يخلي النص أبيض */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.popup-buttons button:hover {
+  background-color: #007bb8; /* لون عند التحويم */
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* ✅ هذا يخلي الأزرار بالوسط */
+  gap: 15px;                /* ✅ مسافة بين الزرين */
+}
+
+.inline-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;  /* مسافة بسيطة بين الدروب داون والرسالة */
+  text-align: left;  /* محاذاة النص لليسار */
+}

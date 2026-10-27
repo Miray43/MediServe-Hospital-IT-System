@@ -1,0 +1,353 @@
+/* Reset styles - Remove default margin, padding, and apply a common font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page background - Set background color, center align text and ensure enough height */
+body {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh; /* لضمان وجود مساحة كافية */
+}
+
+/* تعديل حجم الحاوية الرئيسية للنموذج لتكون أعرض */
+.form-container {
+    background-color: white;
+    max-width: 1000px;  /* تمت الزيادة من 700px إلى 900px */
+    margin: 70px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* حاوية الدروب ليست */
+.dropdown-container {
+    position: relative;
+}
+
+/* توسيع حجم الدروب ليست مع ترك مساحة على اليسار للأيقونة */
+.dropdown-container select {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px; /* مساحة كافية للأيقونة من اليسار */
+    padding-right: 50px; /* مساحة إضافية من اليمين إن لزم الأمر */
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 45px;
+}
+
+/* باقي تنسيقات الإدخال */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Back and Home buttons - Positioned at the top */
+.back-button, 
+.Home-button {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    height: 150px;
+}
+
+/* Back button - Positioned on the left side */
+.back-button {
+    left: 20px;
+} 
+
+/* Home button - Positioned at the center */
+.Home-button {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Button links styling */
+.back-button a,
+.Home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Button text colors */
+.back-button a {
+    color: #4A5568;
+}
+
+.Home-button a {
+    color: #3BAAE0;
+}
+
+/* Icons for Back and Home buttons */
+.back-icon, 
+.Home-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* MS Logo */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.ms-logo img {
+    width: 120px;
+}
+
+/* Hospital Logo */
+.hospital-logo {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.hospital-logo img {
+    height: 50px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+}
+
+/* Title Styling */
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Subtitle Styling */
+.subtitle {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Form grid - Layout for input fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* General styling for select fields (IDs موجودة حاليًا) */
+#technical, #floor, #section, #problem-status, #problem-type, #device-spec {
+    background-color: #EFEFEF; /* خلفية رمادية */
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Focus effect for select elements */
+#technical:focus, #floor:focus, #section:focus, #problem-type:focus {
+    outline: none;
+    border-color: #3ba9e07c;
+}
+
+/* Required field indicator */
+.required {
+    color: red;
+}
+
+/* Buttons container */
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #3BAAE0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*pop up*/
+.popup-modal {
+    display: none; /* نفعّله بـ JavaScript */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center; /* يوسّط أفقي */
+    align-items: center;     /* يوسّط عمودي */
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  .popup-content label {
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+    
+  }
+  
+.popup-content input, .popup-content select {
+    width: 100%;
+    margin: 5px auto;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+  
+.popup-buttons button {
+    padding: 5px 10px;
+    font-size: 14px;
+    width: auto;
+    min-width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3BAAE0;
+    color: white; /* ✅ يخلي النص أبيض */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+  
+  .popup-buttons button:hover {
+    background-color: #007bb8; /* لون عند التحويم */
+  }
+  
+  .popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* ✅ هذا يخلي الأزرار بالوسط */
+    gap: 15px;                /* ✅ مسافة بين الزرين */
+  }
+    /* جعل الأيقونات داخل القائمة المنسدلة */
+.dropdown-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.dropdown-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.dropdown-container select {
+    width: 100%;
+    padding: 10px;
+    padding-right: 50px; /* مساحة للأيقونات */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 45px;
+    background-color: #EFEFEF;
+}
+
+/* تعديل وضع الأيقونات داخل القائمة */
+.icon-container {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    height: 100%;
+    justify-content: center; /* لضبط وضع الأيقونات */
+}
+
+      select {
+        flex: 1;
+        padding: 4px;
+      }
+      
+/* الأيقونة الخاصة بالتعديل داخل الدروب ليست */
+.edit-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left:420px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+.search-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 400px;
+    top: 50%;
+    transform: translateY(calc(-50% + 2px));
+    z-index: 2;
+    cursor: pointer;
+}
+.trash-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 380px;
+    top: 50%;
+    transform: translateY(calc(-50% + 2px));
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* تنسيق الأيقونات داخل الحاوية */
+.icon-container img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

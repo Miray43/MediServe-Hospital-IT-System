@@ -1,0 +1,260 @@
+/* General body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fbfc;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for navigation buttons */
+.nav-buttons {
+  position: relative;
+}
+
+/* Back and Home buttons - same shared styles */
+.back-button, 
+.Home-button {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  height: 150px;
+}
+
+/* Position back button to the left */
+.back-button {
+  left: 20px;
+}
+
+/* Center home button horizontally */
+.Home-button {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Styling anchor tags inside navigation buttons */
+.back-button a,
+.Home-button a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Back button text color */
+.back-button a {
+  color: #4A5568;
+}
+
+/* Home button text color */
+.Home-button a {
+  color: #3BAAE0;
+}
+
+/* Size for both icons */
+.back-icon, 
+.Home-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Header section: contains both logos */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: white;
+  position: relative;
+}
+
+/* MS logo positioned to top-left */
+.ms-logo {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+.ms-logo img {
+  width: 120px;
+}
+
+/* Hospital logo positioned to top-right */
+.hospital-logo {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.hospital-logo img {
+  height: 50px;
+}
+
+/* Main container for the report content */
+.container {
+  max-width: 900px;
+  margin: 90px auto 20px auto; /* Leaves space at top under the buttons */
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Status label style (e.g., In Progress) */
+.status {
+  background-color: #FDE68A;
+  color: #92400E;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Top section of the report with title and buttons */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Styling for buttons like Download/Edit/Close */
+.action-buttons button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Download button style */
+.download-btn {
+  background: #E2E8F0;
+}
+
+/* Edit button style */
+.edit-btn {
+  background:  #3BAAE0;
+  ;
+  color: white;
+}
+
+/* Close button style */
+.close-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* Grid layout for basic report info and specs */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Section titles like "Description", "Device Specs" */
+.section-title {
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Styling for the description and notes boxes */
+.description, .note {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Each device specification box */
+.spec-box {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* Margin between notes */
+.note {
+  margin-top: 10px;
+}
+#pdf-options-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pdf-options-modal .modal-content {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+#pdf-options-modal h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+#pdf-options-modal label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+#pdf-options-modal input[type="checkbox"] {
+  transform: scale(1.2);
+  color: #3BAAE0;
+}
+
+#pdf-options-modal button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#generate-pdf-btn {
+  background:  #3BAAE0;
+  color: white;
+}
+
+#pdf-options-modal button:last-child {
+  background-color: #e5e7eb;
+  color: #374151;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Defines character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive settings for mobile devices -->
+    <title>Maintenance</title> <!-- Title of the page displayed in the browser tab -->
+    <link rel="stylesheet" href="Report Type3.css"> <!-- Linking external CSS file -->
+</head>
+<body>
+
+    <!-- Navigation Buttons (Back & Home) -->
+    <div class="nav-buttons">
+        <div class="back-button"> <!-- Back button to navigate to the previous page -->
+            <a href="#" onclick="goBack()"> <!-- JavaScript function to go back -->
+                <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back <!-- Back icon with text -->
+            </a>
+        </div>
+
+        <div class="Home-button"> <!-- Home button to navigate to the homepage -->
+            <a href="/Home/Home.html">
+                <img src="/icon/Home.png" alt="Home Icon" class="Home-icon"> Home <!-- Home icon with text -->
+            </a>
+        </div>
+    </div>
+
+    <!-- Header (Logos) -->
+    <header>
+        <div class="ms-logo"> <!-- Microsoft (or other company) logo on the left -->
+            <img src="/icon/MS Logo.png" alt="MS Logo"> <!-- Logo image -->
+        </div>
+
+        <div class="hospital-logo"> <!-- Hospital logo on the right -->
+            <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital"> <!-- Logo image -->
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <h1 class="title">Type of report</h1> <!-- Main title of the page -->
+
+    <!-- Maintenance Options Section -->
+    <div class="maintenance-container">
+        <div class="maintenance-frame"> <!-- Frame that holds maintenance options -->
+         <!-- فقط التعديل داخل .maintenance-options -->
+<div class="maintenance-options">
+    
+    <!-- Open Reports -->
+    <div class="option" onclick="goToSearchWithStatus('Open')" 
+        onmouseover="changeImage(this, '/icon/regular-hover.png')" 
+        onmouseout="changeImage(this, '/icon/regular.png')">
+        <div class="icon-container">
+            <img src="/icon/Open.png" alt="Open Reports">
+        </div>
+        <p>Open</p>
+    </div>
+
+    <!-- In Progress Reports -->
+    <div class="option" onclick="goToSearchWithStatus('In Progress')" 
+        onmouseover="changeImage(this, '/icon/In Progress.png')" 
+        onmouseout="changeImage(this, '/icon/general.png')">
+        <div class="icon-container">
+            <img src="/icon/In Progress.png" alt="In Progress Reports">
+        </div>
+        <p>In Progress</p>
+    </div>
+
+    <!-- Closed Reports -->
+    <div class="option" onclick="goToSearchWithStatus('Closed')" 
+        onmouseover="changeImage(this, '/icon/external-hover.png')" 
+        onmouseout="changeImage(this, '/icon/external.png')">
+        <div class="icon-container">
+            <img src="/icon/Completed.png" alt="Closed Reports">
+        </div>
+        <p>Closed</p>
+    </div>
+
+</div>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="Report Type3.js"></script> <!-- External JavaScript file for functionality -->
+</body>
+</html>

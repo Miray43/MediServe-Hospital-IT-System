@@ -1,0 +1,416 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* Back and Home buttons */
+.back-button, .Home-button {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    height: 150px;
+}
+.back-button { left: 20px; }
+.Home-button {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.back-button a, .Home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.back-button a { color: #4A5568; }
+.Home-button a { color: #3BAAE0; }
+.back-icon, .Home-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Logos */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+.ms-logo img {
+    width: 120px;
+}
+.hospital-logo {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.hospital-logo img {
+    height: 50px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+}
+
+/* Form container */
+.form-container {
+    background-color: white;
+    max-width: 700px;
+    margin: 70px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Titles */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    margin-top: 15px;
+}
+.required {
+    color: red;
+}
+
+/* Radio group */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 5px;
+}
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #4A4A4A;
+    cursor: pointer;
+}
+.radio-group input[type="radio"] {
+    appearance: none;
+    width: 1px;
+    height: 1px;
+    border: 2px solid #B0B0B0;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+.radio-group input[type="radio"]:checked {
+    background-color: #3BAAE0;
+    border-color: #3BAAE0;
+}
+
+/* Inputs, Textareas */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #3ba9e07c;
+    outline: none;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 5px;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    font-size: 14px;
+    cursor: pointer;
+}
+.checkbox-group input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+}
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #3BAAE0;
+    border-color: #3BAAE0;
+}
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3BAAE0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+button:hover {
+    background-color: #3498db;
+}
+
+/* Custom dropdown full */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.dropdown-toggle {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    display: none;
+    z-index: 10;
+    border-top: none;
+    border-radius: 4px;
+}
+.dropdown-search {
+    width: calc(100% - 30px);
+    margin: 8px 15px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.dropdown-options {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 5px 0;
+}
+.dropdown-options::-webkit-scrollbar {
+    width: 8px;
+}
+.dropdown-options::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.dropdown-options::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.dropdown-options::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+.option {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.option:hover {
+    background-color: #f0f0f0;
+}
+.add-option-under-search {
+    padding: 8px 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    color: #3498db;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.add-option-under-search:hover {
+    background-color: #e9ecef;
+}
+
+/* Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    padding: 30px;
+    width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.popup-content label {
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+}
+.popup-content input, .popup-content select {
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-buttons {
+        padding: 0 10px;
+    }
+    .back-button a, .Home-button a {
+        font-size: 13px;
+    }
+    .form-container {
+        width: 90%;
+        margin: 120px auto 50px;
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 480px) {
+    .nav-buttons {
+        padding: 0 5px;
+    }
+    .back-button a, .Home-button a {
+        font-size: 12px;
+    }
+    .form-container {
+        width: 95%;
+        margin: 100px auto 40px;
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+/*pop up*/
+.popup-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  .popup-content {
+    background: white;
+    padding: 30px;
+    width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+  }
+  
+  .popup-content label {
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+    
+  }
+  
+.popup-content input, .popup-content select {
+    width: 100%;
+    margin: 5px auto;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+  
+.popup-buttons button {
+    padding: 5px 10px;
+    font-size: 14px;
+    width: auto;
+    min-width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3BAAE0;
+    color: white; /* ✅ يخلي النص أبيض */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+  
+  .popup-buttons button:hover {
+    background-color: #007bb8; /* لون عند التحويم */
+  }
+  
+  .popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* ✅ هذا يخلي الأزرار بالوسط */
+    gap: 15px;                /* ✅ مسافة بين الزرين */
+  }
+  

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login and Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Logo container moved inside the main container -->
+    <div class="logo-container">
+      <img src="/ICON/Ms Logo.png" class="logo" id="logo1" alt="Logo 1" />
+      <img src="/icon/hospital-logo.png" class="logo" id="logo2" alt="Logo 2" style="display: none;" />
+    </div>
+    
+    <!-- Login form -->
+    <div class="form-container login-container">
+      <form action="#" id="loginForm">
+        <h1 class="align-left">Welcome</h1>
+        <h2 class="align-left">Please enter your information</h2>
+        <br />
+        <label for="loginEmail" class="align-left">Email</label>
+        <input type="text" id="loginEmail" placeholder="Enter your email" />
+        <label for="loginPassword" class="align-left">Password</label>
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <span class="error-message" id="loginError"></span>
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+          <div style="display: flex; align-items: center;">
+            <input type="checkbox" id="rememberMe" />
+            <label for="rememberMe" style="margin-left: 5px;">Remember Me</label>
+          </div>
+          <a href="password.html" style="font-size: 16px;">Forgot your password?</a>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    
+    <!-- Sign-up form -->
+    <div class="form-container signup-container">
+      <form action="#" id="signupForm">
+        <h1 class="align-left">Create Account</h1>
+        <h2 class="align-left">Please enter your information</h2>
+        <br />
+        <input type="text" id="signupUsername" placeholder="Username" />
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <input type="password" id="signupPassword" placeholder="Password" />
+        <span class="error-message" id="signupError"></span>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    
+    <!-- Overlay section -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <br /><br />
+          <h1>Login</h1>
+          <br />
+          <p>If you already have an account</p>
+          <br /><br /><br />
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <br /><br />
+          <h1>Create Account</h1>
+          <br />
+          <p>If you're new here, create an account</p>
+          <br /><br /><br />
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript to toggle between forms and validate inputs -->
+  <script>
+    // Get main HTML elements
+    const container = document.querySelector('.container');
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+
+    // On "Sign Up" button click
+    signUpButton.addEventListener('click', () => {
+      container.classList.add('right-panel-active');
+      // Switch logos: Hide logo1 and show logo2
+      document.getElementById('logo1').style.display = 'none';
+      document.getElementById('logo2').style.display = 'block';
+    });
+
+    // On "Sign In" button click
+    signInButton.addEventListener('click', () => {
+      container.classList.remove('right-panel-active');
+      // Switch logos: Show logo1 and hide logo2
+      document.getElementById('logo1').style.display = 'block';
+      document.getElementById('logo2').style.display = 'none';
+    });
+
+    // Validate inputs when submitting the sign-up form
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Retrieve values from sign-up fields
+      let username = document.getElementById("signupUsername").value.trim();
+      let email = document.getElementById("signupEmail").value.trim();
+      let password = document.getElementById("signupPassword").value.trim();
+      let errorMessage = document.getElementById("signupError");
+
+      // Ensure all fields are not empty
+      if (username === "" || email === "" || password === "") {
+        errorMessage.textContent = "All fields are required!";
+      } 
+      // Validate email format
+      else if (!/\S+@\S+\.\S+/.test(email)) {
+        errorMessage.textContent = "Invalid email format!";
+      } 
+      // Ensure the password has at least 6 characters
+      else if (password.length < 6) {
+        errorMessage.textContent = "Password must be at least 6 characters!";
+      } 
+      // If all inputs are valid
+      else {
+        errorMessage.textContent = "";
+        alert("Sign-up successful!");
+      }
+    });
+
+    // Validate inputs when submitting the login form
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Retrieve values from login fields
+      let email = document.getElementById("loginEmail").value.trim();
+      let password = document.getElementById("loginPassword").value.trim();
+      let errorMessage = document.getElementById("loginError");
+
+      // Ensure all fields are not empty
+      if (email === "" || password === "") {
+        errorMessage.textContent = "All fields are required!";
+      } else {
+        errorMessage.textContent = "";
+        alert("Login successful!");
+      }
+    });
+  </script>
+</body>
+</html>

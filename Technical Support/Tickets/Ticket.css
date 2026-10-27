@@ -1,0 +1,221 @@
+/* Reset styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Back and Home buttons */
+.back-button, 
+.Home-button {
+    position: absolute; /* Position the buttons absolutely */
+    top: 20px; /* Place buttons near the top */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align icons and text */
+    gap: 8px; /* Space between icon and text */
+    width: fit-content; /* Adjust width based on content */
+    height: 150px; /* Set button height */
+}
+
+/* Back button */
+.back-button {
+    left: 20px;
+}
+
+/* Home button */
+.home-button {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Button links */
+.back-button a,
+.home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Button text colors */
+.back-button a {
+    color: #4A5568;
+}
+
+.home-button a {
+    color: #3BAAE0;
+}
+
+/* Icons */
+.back-icon, 
+.home-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+/* MS Logo */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.ms-logo img {
+    width: 120px; /* تم التطابق مع الكود الثاني */
+}
+
+/* Hospital Logo */
+.hospital-logo {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+
+.hospital-logo img {
+    height: 50px; /* تم التطابق مع الكود الثاني */
+}
+
+/* Page title */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 50px; /* تعديل التطابق */
+}
+
+/* Description */
+.description {
+    font-size: 16px;
+    color: #4A5568;
+    margin-bottom: 40px;
+}
+
+/* Ticket container */
+.ticket-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+/* Ticket frame */
+.ticket-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ticket options */
+.ticket-options {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+/* Ticket option */
+.option {
+    background-color: #f8f9fa;
+    padding: 5px; /* مطابق للكود الثاني */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    width: 180px;
+}
+
+/* Icon container */
+.icon-container img {
+    width: 50px;
+    transition: transform 0.3s;
+}
+
+/* Hover effect */
+.option:hover {
+    background-color: #EFF6FF;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Click effect */
+.option:active {
+    background-color: #EFF6FF;
+}
+
+/* Responsive for tablets */
+@media screen and (max-width: 768px) {
+    .back-button {
+        left: 10px;
+    }
+
+    .home-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 24px;
+        margin-top: 120px;
+        margin-bottom: 50px;
+    }
+
+    .ticket-container {
+        width: 90%;
+    }
+
+    .option {
+        width: 160px;
+    }
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 480px) {
+    .back-button {
+        left: 5px;
+    }
+
+    .home-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 22px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    .ticket-options {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .option {
+        width: 90%;
+    }
+}

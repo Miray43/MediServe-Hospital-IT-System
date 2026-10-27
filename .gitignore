@@ -1,0 +1,6 @@
+node_modules/
+.env
+hospital-training/backend/uploads/*
+!hospital-training/backend/uploads/.gitkeep
+.vscode/
+.DS_Store

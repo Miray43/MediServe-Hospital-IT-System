@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadata and page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>External Maintenance</title>
+  <!-- External CSS file for styling -->
+  <link rel="stylesheet" href="external.css" />
+</head>
+<body>
+  <!-- Navigation buttons section (Back & Home) -->
+  <div class="nav-buttons">
+    <!-- Back button -->
+    <div class="back-button">
+      <a href="#" onclick="goBack()">
+        <img src="/Mediserve-main/icon/Back.png" alt="Back Icon" class="back-icon" /> Back
+      </a>
+    </div>
+    <!-- Home button -->
+    <div class="Home-button">
+      <a href="#">
+        <img src="/Mediserve-main/icon/Home.png" alt="Home Icon" class="Home-icon" /> Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Header section (Logos) -->
+  <header>
+    <!-- MS logo -->
+    <div class="ms-logo">
+      <img src="/Mediserve-main/icon/MS Logo.png" alt="MS Logo" />
+    </div>
+    <!-- Hospital logo -->
+    <div class="hospital-logo">
+      <img src="/Mediserve-main/icon/hospital-logo.png" alt="King Abdulaziz Hospital" />
+    </div>
+  </header>
+
+  <!-- Main form container -->
+  <div class="form-container">
+    <!-- Form title and subtitle -->
+    <h1 class="title">External Maintenance</h1>
+    <p class="subtitle">Please fill in the maintenance details below</p>
+
+    <!-- Form start -->
+    <form id="external-maintenance-form">
+      <!-- Section title for device info -->
+      <p class="section-title">Device Information</p>
+      
+      <!-- Device input fields: ترتيب عمودي باستخدام خصائص inline -->
+      <div class="device-container" style="display: block;">
+        <!-- Device Type dropdown -->
+        <div class="device-box" style="margin-bottom: 15px;">
+          <label>Device Type <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-device-type" style="display: none;">
+              <input type="text" class="search-input" id="search-device-type" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="device-type" required>
+                <option value="" disabled selected>Select device type</option>
+                <option value="add-custom">+ Add New Device Type</option>
+              </select>
+              <div class="icons-container">
+                <img src="/Mediserve-main/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('device-type')">
+                <img src="/Mediserve-main/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('device-type', 'Device Type')">
+                <img src="/Mediserve-main/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('device-type')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section dropdown -->
+        <div class="device-box" style="margin-bottom: 15px;">
+          <label>Section <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-section" style="display: none;">
+              <input type="text" class="search-input" id="search-section" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="section" required>
+                <option value="" disabled selected>Select section</option>
+                <option value="add-custom">+ Add New Section</option>
+                <!-- باقي البيانات تأتي من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/Mediserve-main/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('section')">
+                <img src="/Mediserve-main/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('section', 'Section')">
+                <img src="/Mediserve-main/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('section')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Device Specifications dropdown -->
+        <div class="device-box" style="margin-bottom: 15px;">
+          <label>Device Specifications <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-device-spec" style="display: none;">
+              <input type="text" class="search-input" id="search-device-spec" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="device-spec" required>
+                <option value="" disabled selected>Select specification</option>
+                <option value="add-custom">+ Add New Specification</option>
+              </select>
+              <div class="icons-container">
+                <img src="/Mediserve-main/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('device-spec')">
+                <img src="/Mediserve-main/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('device-spec', 'Device Specifications')">
+                <img src="/Mediserve-main/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('device-spec')">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section title for ticket info -->
+      <p class="section-title">Ticket Information</p>
+      
+      <!-- Ticket number input -->
+      <div>
+        <label>Ticket Number <span class="required">*</span></label>
+        <input type="text" id="ticket-number" placeholder="Enter ticket number" required>
+      </div>
+
+      <!-- Maintenance manager name -->
+      <div>
+        <label>Maintenance Manager <span class="required">*</span></label>
+        <input type="text" id="maintenance-manager" placeholder="Enter manager name" required>
+      </div>
+
+      <!-- Reporter Name dropdown -->
+      <div style="margin-bottom: 15px;">
+        <label>Reporter Name <span class="required">*</span></label>
+        <div class="dropdown-container">
+          <div class="search-container" id="search-container-reporter-name" style="display: none;">
+            <input type="text" class="search-input" id="search-reporter-name" placeholder="Search...">
+          </div>
+          <div class="dropdown-wrapper">
+            <select id="reporter-name" required>
+              <option value="" disabled selected>Select reporter</option>
+              <option value="add-custom">+ Add New Reporter</option>
+              <!-- باقي البيانات تأتي من السيرفر -->
+            </select>
+            <div class="icons-container">
+              <img src="/Mediserve-main/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('reporter-name')">
+              <img src="/Mediserve-main/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('reporter-name', 'Reporter Name')">
+              <img src="/Mediserve-main/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('reporter-name')">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section title for diagnosis -->
+      <p class="section-title">Diagnosis Details</p>
+      
+      <!-- Initial diagnosis textarea -->
+      <div>
+        <label>Initial Diagnosis <span class="required">*</span></label>
+        <textarea id="initial-diagnosis" placeholder="Enter initial diagnosis" required></textarea>
+      </div>
+
+      <!-- Final diagnosis textarea -->
+      <div>
+        <label>Final Diagnosis</label>
+        <textarea id="final-diagnosis" placeholder="Enter final diagnosis"></textarea>
+      </div>
+
+      <!-- Submit and cancel buttons -->
+      <div class="form-buttons">
+        <button type="button" class="cancel-btn">Cancel</button>
+        <button type="submit" class="submit-btn">Submit Form</button>
+      </div>
+    </form>
+  </div>
+<div id="popup-modal">
+  <div class="dropdown-container">
+    <div class="search-container" style="display: none;">
+      <input type="text" class="search-input" placeholder="Search...">
+    </div>
+    <div class="custom-dropdown">
+      <select class="custom-select">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <!-- المزيد -->
+      </select>
+      <i class="search-icon">🔍</i> <!-- أو تستخدم class أيقونتك هنا -->
+    </div>
+  </div>
+
+  <!-- ممكن أكثر من وحدة مثل اللي فوق -->
+</div>
+
+  <!-- Generic popup modal for adding new values -->
+  <div id="popup-modal" class="popup-modal" style="display: none;">
+    <div class="popup-content">
+      <h2 id="popup-title">Enter Device Specifications</h2>
+      <div id="popup-fields">
+        <p>No fields available for this device type.</p>
+      </div>
+      <div class="popup-buttons">
+        <button id="popup-save-btn">Save</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Popup for Adding Generic Options -->
+  <div id="generic-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h3 id="generic-popup-title">Add New</h3>
+      <label for="generic-popup-input" id="generic-label">New Value</label>
+      <input type="text" id="generic-popup-input" placeholder="Enter new value..." required>
+      <input type="hidden" id="generic-popup-target-id">
+      <div class="popup-buttons">
+        <button id="popup-save-btn">Save</button>
+        <button type="button" class="cancel-btn" onclick="closeGenericPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript files -->
+  <script src="Maintenance.js"></script>
+  <script src="External.js"></script>
+</body>
+</html>

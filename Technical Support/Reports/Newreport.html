@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Report</title>
+
+  <!-- Google Fonts (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="NewReport.CSS" />
+</head>
+<body>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <div class="back-button">
+      <a href="#" onclick="goBack()">
+        <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+      </a>
+    </div>
+    <div class="Home-button">
+      <a href="Home.html">
+        <img src="/icon/Home.png" alt="Home Icon" class="Home-icon"> Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="ms-logo">
+      <img src="/icon/MS Logo.png" alt="MS Logo">
+    </div>
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital">
+    </div>
+  </header>
+
+  <!-- ✅ Form Starts -->
+  <form id="report-form" action="Search reports.html" method="GET" enctype="multipart/form-data">
+    <div class="container">
+
+      <div class="title">New Report</div>
+      <p>Fill out the report details below</p>
+
+      <!-- First Row -->
+      <div class="row">
+        <div>
+          <label>Report Type</label>
+          <select name="reportType">
+            <option>Select report type</option>
+          </select>
+        </div>
+        <div>
+          <label>Submission Date</label>
+          <input type="date" name="submissionDate" />
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="row">
+        <div>
+          <label>Device Type</label>
+          <select name="deviceType">
+            <option>Select device type</option>
+          </select>
+        </div>
+        <div>
+          <label>Status</label>
+          <select name="status">
+            <option>Select status</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <label>Detailed Description</label>
+      <textarea name="description" placeholder="Enter detailed description of the report..."></textarea>
+
+      <!-- 📎 Upload -->
+      <div class="form-group">
+        <label>Upload a Copy of the Email</label>
+        <div id="drop-area" class="upload-box">
+          <img src="/icon/upload.png" alt="Upload Icon" class="upload-icon">
+          <p>Drop files here or click to upload</p>
+          <span class="file-format-info">Supported formats: PDF, DOC, DOCX, EML</span>
+          <input type="file" id="upload-file" name="attachments" multiple hidden>
+        </div>
+      </div>
+
+      <!-- ✍️ Signature Section -->
+      <label class="signature-box">Signature</label>
+      <p>✍️ Choose how to provide your signature</p>
+
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- Draw Signature -->
+        <div style="flex: 1;">
+          <p>Draw Signature</p>
+          <canvas id="signatureCanvas" width="300" height="150" style="border: 1px solid #ccc;"></canvas>
+        </div>
+
+        <!-- Upload Signature -->
+        <div style="flex: 1;">
+          <p>Or Upload Signature Image</p>
+          <input type="file" id="signatureUpload" accept="image/*" />
+          <img id="uploadedSignature" src="" alt="Uploaded Signature" style="max-width: 100%; margin-top: 10px; display: none;" />
+        </div>
+      </div>
+
+      <p id="clearSignature" style="margin-top: 8px; font-size: 14px; color: #007bff; cursor: pointer;">Clear Signature</p>
+
+      <!-- Submit Button -->
+      <div class="buttons">
+        <button type="submit" class="submit-btn">Submit Report</button>
+      </div>
+
+    </div>
+  </form>
+
+  <!-- JavaScript -->
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+</script>
+   <script src="Newreport.js"></script>
+
+</body>
+</html>

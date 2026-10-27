@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal Ticket</title>
+
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="External Ticket.css">
+</head>
+
+<body>
+
+  <!-- Back button -->
+<div class="back-button">
+  <a href="#" onclick="history.back(); return false;">
+    <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+  </a>
+</div>
+
+
+    <!-- Home button -->
+    <div class="home-button">
+        <a href="Home.html">
+        <img src="/icon/Home.png" alt="Home Icon" class="home-icon"> Home
+      </a>
+    </div>
+  </div>
+
+  <!-- 🏥 Header with logos -->
+  <header>
+    <div class="ms-logo">
+      <img src="/icon/Ms Logo.png" alt="MS Logo">
+    </div>
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="Hospital Logo">
+    </div>
+  </header>
+
+  <!-- 📝 Ticket Form Container -->
+  <div class="ticket-container">
+    <h1 class="title">External Ticket</h1>
+    <p class="subtitle">Fill in the details below to create a new support ticket</p>
+
+    <!-- 📋 Ticket form -->
+    <form action="#" method="POST" class="ticket-form">
+      
+<!-- Ticket Number (editable) -->
+<div class="form-group">
+  <label>Ticket Number</label>
+  <input type="text" placeholder="Enter Ticket Number" class="form-control">
+</div>
+
+      <!-- Reporter Name -->
+      <div class="form-group">
+        <label>Reporter Name <span class="required">*</span></label>
+        <input type="text" placeholder="Enter reporter name" required>
+      </div>
+
+       <!-- Dropdown: Section -->
+       <div>
+        <label>Section <span class="required">*</span></label>
+        <div class="dropdown-container">
+          <div class="search-container" id="search-container-section" style="display: none;">
+            <input type="text" class="search-input" id="search-section" placeholder="Search...">
+          </div>
+          <div class="dropdown-wrapper">
+            <select id="section">
+              <option value="" disabled selected>Select section</option>
+              <option value="add-custom">+ Add New Section</option>
+              <!-- باقي البيانات تأتي من السيرفر -->
+            </select>
+            <div class="icons-container">
+              <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('section')">
+              <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('section', 'Section')">
+              <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('section')">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 📎 Email Upload -->
+        <div class="form-group">
+          <label>Upload a Copy of the Email</label>
+          <div id="drop-area" class="upload-box">
+            <img src="/icon/upload.png" alt="Upload Icon" class="upload-icon">
+            <p>Drop files here or click to upload</p>
+            <span class="file-format-info">Supported formats: PDF, DOC, DOCX, EML</span>
+            <input type="file" id="upload-file" hidden>
+          </div>
+        </div>
+
+      <!-- Priority Radio Options with Icons -->
+      <div class="form-group">
+        <label>Priority <span class="required">*</span></label>
+        <div class="priority-options">
+          <label>
+            <input type="radio" name="priority" value="high" required> 
+            <img src="/icon/high.png" alt="High Icon" class="priority-icon"> High
+          </label>
+          <label>
+            <input type="radio" name="priority" value="medium"> 
+            <img src="/icon/Medium.png" alt="Medium Icon" class="priority-icon"> Medium
+          </label>
+          <label>
+            <input type="radio" name="priority" value="low"> 
+            <img src="/icon/low.png" alt="Low Icon" class="priority-icon"> Low
+          </label>
+        </div>
+      </div>
+
+      <!-- Issue Description -->
+      <div class="form-group">
+        <label>Issue Description <span class="required">*</span></label>
+        <textarea placeholder="Describe the issue in detail..." required></textarea>
+      </div>
+
+      <!-- Report Date and Time -->
+      <div class="form-group">
+        <label>Report Date/Time <span class="required">*</span></label>
+        <input type="datetime-local" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Save Ticket</button>
+    </form>
+  </div>
+  
+   <!-- Popup Modal -->
+   <div id="popup-modal" class="popup-modal">
+    <div class="popup-content">
+      <h2 id="popup-title">Enter </h2>
+      <div id="popup-fields">
+        <p>No fields available for this device type.</p>
+      </div>
+      <div class="popup-buttons">
+        <button id="popup-save-btn">Save</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript (for extra functionality if needed) -->
+  <script src="External Ticket.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>External Ticket</title>
+  <link rel="stylesheet" href="Internal Ticket.css" />
+  <style>
+    .inline-error {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <div class="back-button">
+        <a href="#" onclick="goBack()">
+          <img src="/icon/Back.png" alt="Back Icon" class="back-icon" /> Back
+        </a>
+      </div>
+      <div class="home-button">
+        <a href="Home.html">
+          <img src="/icon/home.png" alt="Home Icon" class="home-icon" /> Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="ms-logo"><img src="/icon/Ms Logo.png" alt="MS Logo" /></div>
+      <div class="hospital-logo"><img src="/icon/hospital-logo.png" alt="Hospital Logo" /></div>
+    </header>
+
+    <!-- Form -->
+    <div class="ticket-container">
+      <h1 class="title">Internal Ticket</h1>
+      <p class="subtitle">Fill in the details below to create a new Internal ticket</p>
+
+      <form id="ticket-form" enctype="multipart/form-data" method="POST" onsubmit="return validateForm(event)">
+        <!-- Ticket Type -->
+        <div class="form-group">
+          <label for="ticket-type">Ticket Type <span class="required">*</span></label>
+          <select id="ticket-type" name="ticket-type" required>
+            <option value="" disabled selected>Select ticket type</option>
+          </select>
+        </div>
+
+        <!-- Custom Ticket Type -->
+        <div class="form-group" id="custom-type-container" style="display: none;">
+          <label for="custom-ticket-type">Specify Custom Type</label>
+          <input type="text" id="custom-ticket-type" placeholder="Enter custom type" />
+        </div>
+
+        <div class="form-group">
+          <label for="ticket-number">Ticket Number</label>
+          <input type="text" id="ticket-number" name="ticket_number" readonly placeholder="Auto-generated..." />
+        </div>
+
+        <div class="form-group">
+          <label>Report Name</label>
+          <input type="text" placeholder="Enter report name" />
+        </div>
+
+        <!-- حالة التقرير -->
+<label for="report-status">Report Status <span class="required">*</span></label>
+<div class="dropdown-container">
+  <div class="search-container" id="search-container-report-status" style="display: none;">
+    <input type="text" class="search-input" id="search-report-status" placeholder="Search..." onkeyup="filterDropdown('report-status')" />
+  </div>
+  <div class="dropdown-wrapper">
+    <select id="report-status" name="report-status" required>
+      <option value="" disabled selected>Select report status</option>
+      <option value="add-custom">+ Add New Status</option> <!-- Add New Option -->
+      <option value="open">Open</option>
+      <option value="closed">Closed</option>
+      
+    </select>
+    <div class="icon-container">
+      <img src="/icon/search.png" class="search-icon" onclick="toggleSearch('report-status')" />
+      <img src="/icon/edit.png" class="edit-icon" onclick="event.stopPropagation(); openPopup('report-status', 'Report Status')" />
+      <img src="/icon/trash.png" class="trash-icon" onclick="event.stopPropagation(); deleteOption('report-status')" />
+    </div>
+  </div>
+</div>
+
+<!-- نوع الجهاز -->
+<label for="device-type">Device Type <span class="required">*</span></label>
+<div class="dropdown-container">
+  <div class="search-container" id="search-container-device-type" style="display: none;">
+    <input type="text" class="search-input" id="search-device-type" placeholder="Search..." onkeyup="filterDropdown('device-type')" />
+  </div>
+  <div class="dropdown-wrapper">
+    <select id="device-type" name="device-type" required>
+      <option value="" disabled selected>Select device type</option>
+      <option value="add-custom">+ Add New Device Type</option> <!-- Add New Option -->
+    </select>
+    <div class="icon-container">
+      <img src="/icon/search.png" class="search-icon" onclick="toggleSearch('device-type')" />
+      <img src="/icon/edit.png" class="edit-icon" onclick="event.stopPropagation(); openPopup('device-type', 'Device Type')" />
+      <img src="/icon/trash.png" class="trash-icon" onclick="event.stopPropagation(); deleteOption('device-type')" />
+    </div>
+  </div>
+</div>
+
+<!-- مواصفات الجهاز -->
+<label for="device-specification">Device Specification <span class="required">*</span></label>
+<div class="dropdown-container">
+  <div class="search-container" id="search-container-device-specification" style="display: none;">
+    <input type="text" class="search-input" id="search-device-specification" placeholder="Search..." onkeyup="filterDropdown('device-specification')" />
+  </div>
+  <div class="dropdown-wrapper">
+    <select id="device-specification" name="device-specification" required>
+      <option value="" disabled selected>Select device specification</option>
+      <option value="add-custom">+ Add New Specification</option> <!-- Add New Option -->
+    </select>
+    <div class="icon-container">
+      <img src="/icon/search.png" class="search-icon" onclick="toggleSearch('device-specification')" />
+      <img src="/icon/edit.png" class="edit-icon" onclick="event.stopPropagation(); openPopup('device-specification', 'Device Specification')" />
+      <img src="/icon/trash.png" class="trash-icon" onclick="event.stopPropagation(); deleteOption('device-specification')" />
+    </div>
+  </div>
+</div>
+
+
+
+        <!-- Upload -->
+        <div class="form-group">
+          <label>Upload a Copy of the Email</label>
+          <div id="drop-area" class="upload-box">
+            <img src="/icon/upload.png" alt="Upload Icon" class="upload-icon" />
+            <p>Drop files here or click to upload</p>
+            <span class="file-format-info">Supported formats: PDF, DOC, DOCX, EML</span>
+            <input type="file" id="upload-file" hidden />
+          </div>
+        </div>
+
+        <!-- Priority -->
+        <div class="form-group">
+          <label>Priority <span class="required">*</span></label>
+          <div class="priority-options">
+            <label><input type="radio" name="priority" value="high" required /> <img src="/icon/high.png" class="priority-icon" /> High</label>
+            <label><input type="radio" name="priority" value="medium" /> <img src="/icon/Medium.png" class="priority-icon" /> Medium</label>
+            <label><input type="radio" name="priority" value="low" /> <img src="/icon/low.png" class="priority-icon" /> Low</label>
+          </div>
+        </div>
+
+        <!-- Initial Diagnosis -->
+        <label for="initial-diagnosis">Initial Diagnosis <span class="required">*</span></label>
+        <div class="dropdown-container">
+          <div class="search-container" id="search-container-initial-diagnosis" style="display: none;">
+            <input type="text" class="search-input" id="search-initial-diagnosis" placeholder="Search..." onkeyup="filterDropdown('initial-diagnosis')" />
+          </div>
+          <div class="dropdown-wrapper">
+            <select id="initial-diagnosis" name="initial-diagnosis" required>
+              <option value="" disabled selected>Select diagnosis</option>
+              <option value="add-custom">+ Add New Diagnosis</option>
+            </select>
+            <div class="icon-container">
+              <img src="/icon/search.png" class="search-icon" onclick="toggleSearch('initial-diagnosis')" />
+              <img src="/icon/edit.png" class="edit-icon" onclick="event.stopPropagation(); openPopup('initial-diagnosis', 'Initial Diagnosis')" />
+              <img src="/icon/trash.png" class="trash-icon" onclick="event.stopPropagation(); deleteOption('initial-diagnosis')" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Areas -->
+        <div class="form-group"><label>Report Details</label><textarea placeholder="Enter detailed description of the issue"></textarea></div>
+        <div class="form-group"><label>Final Diagnosis</label><textarea placeholder="Enter final diagnosis after investigation"></textarea></div>
+        <div class="form-group"><label>Other Description</label><textarea placeholder="Please provide additional details if 'Other' is selected"></textarea></div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn">Save Ticket</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popup-modal" class="popup-modal">
+    <div class="popup-content">
+      <h2 id="popup-title">Enter </h2>
+      <div id="popup-fields">
+        <p>No fields available for this device type.</p>
+      </div>
+      <div class="popup-buttons">
+        <button id="popup-save-btn">Save</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <script src="Internal Ticket.js"></script>
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Set character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make the page responsive -->
+  <title>General Maintenance</title> <!-- Page title -->
+  <link rel="stylesheet" href="general.css"> <!-- Link external CSS file -->
+</head>
+<body>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <div class="back-button">
+      <a href="#" onclick="goBack()">
+        <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+      </a>
+    </div>
+  </div>
+
+  <div class="Home-button">
+    <a href="/Home/Home.html">
+      <img src="/icon/Home.png" alt="Home Icon"> Home
+    </a>
+  </div>
+
+  <!-- Header (Logos) -->
+  <header>
+    <div class="ms-logo">
+      <img src="/icon/MS Logo.png" alt="MS Logo">
+    </div>
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital">
+    </div>
+  </header>
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <h1 class="title">General Maintenance</h1>
+    <p class="subtitle">Please fill in all required fields</p>
+
+    <form action="#" method="POST">
+      <div class="form-grid">
+        <div>
+          <label>Customer Name <span class="required">*</span></label>
+          <input type="text" placeholder="Enter customer name" required>
+        </div>
+
+        <div>
+          <label>Initial Diagnosis</label>
+          <input type="text" placeholder="Enter initial diagnosis" >
+        </div>
+
+        <div>
+          <label>ID Number</label>
+          <input type="text" placeholder="Enter ID number">
+        </div>
+
+        <div>
+          <label>Final Diagnosis</label>
+          <input type="text" placeholder="Enter final diagnosis">
+        </div>
+
+        <!-- Dropdown: Type of Problem -->
+        <div>
+          <label>Type of Problem <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-problem-type" style="display: none;">
+              <input type="text" class="search-input" id="search-problem-type" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="problem-type">
+                <option value="" disabled selected>Select problem type</option>
+                <option value="add-custom">+ Add New Problem Type</option>
+                <!-- باقي الخيارات تُجلب من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <!-- أيقونة البحث -->
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('problem-type')">
+                <!-- أيقونة التحرير -->
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('problem-type', 'Type of Problem')">
+                <!-- أيقونة الحذف -->
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('problem-type')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label>Ext Number</label>
+          <input type="text" placeholder="Enter extension number">
+        </div>
+
+        <!-- Dropdown: Section -->
+        <div>
+          <label>Section <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-section" style="display: none;">
+              <input type="text" class="search-input" id="search-section" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="section">
+                <option value="" disabled selected>Select section</option>
+                <option value="add-custom">+ Add New Section</option>
+                <!-- باقي البيانات تأتي من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('section')">
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('section', 'Section')">
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('section')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Device Specifications -->
+        <div>
+          <label>Device Specifications <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-device-spec" style="display: none;">
+              <input type="text" class="search-input" id="search-device-spec" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="device-spec" required>
+                <option value="" disabled selected>Select Specifications</option>
+                <option value="add-custom">+ Add New Specification</option>
+                <!-- بيانات الجهاز تُجلب من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('device-spec')">
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('device-spec', 'Device Specifications')">
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('device-spec')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Floor -->
+        <div>
+          <label>Floor</label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-floor" style="display: none;">
+              <input type="text" class="search-input" id="search-floor" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="floor">
+                <option value="" disabled selected>Select floor</option>
+                <option value="add-custom">+ Add New Floor</option>
+                <!-- بيانات الطوابق تُجلب من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('floor')">
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('floor', 'Floor')">
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('floor')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Technical -->
+        <div>
+          <label>Technical</label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-technical" style="display: none;">
+              <input type="text" class="search-input" id="search-technical" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="technical">
+                <option value="" disabled selected>Select technical</option>
+                <option value="add-custom">+ Add New Technical</option>
+                <!-- باقي البيانات تُجلب من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('technical')">
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('technical', 'Technical')">
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('technical')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown: Problem Status -->
+        <div>
+          <label>Problem Status <span class="required">*</span></label>
+          <div class="dropdown-container">
+            <div class="search-container" id="search-container-problem-status" style="display: none;">
+              <input type="text" class="search-input" id="search-problem-status" placeholder="Search...">
+            </div>
+            <div class="dropdown-wrapper">
+              <select id="problem-status" required>
+                <option value="" disabled selected>Select status</option>
+                <option value="add-custom">+ Add New Status</option>
+                <!-- بيانات الحالة تُجلب من السيرفر -->
+              </select>
+              <div class="icons-container">
+                <img src="/icon/search.png" alt="Search Icon" class="search-icon" onclick="toggleSearch('problem-status')">
+                <img src="/icon/edit.png" alt="Edit Icon" class="edit-icon" onclick="event.stopPropagation(); openPopup('problem-status', 'Problem Status')">
+                <img src="/icon/trash.png" alt="Trash Icon" class="trash-icon" onclick="event.stopPropagation(); deleteOption('problem-status')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button type="button" class="cancel-btn">Cancel</button>
+        <button type="submit" class="submit-btn">Submit Form</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popup-modal" class="popup-modal">
+    <div class="popup-content">
+      <h2 id="popup-title">Enter Device Specifications</h2>
+      <div id="popup-fields">
+        <p>No fields available for this device type.</p>
+      </div>
+      <div class="popup-buttons">
+        <button id="popup-save-btn">Save</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="generic-popup" class="popup-modal" style="display: none;"> </div>
+  <!-- JavaScript functions -->
+  <script src="Maintenance.js"></script>
+  <script src="general.js"></script>
+
+   </body>
+   </html>
+

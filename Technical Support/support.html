@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support</title>
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+    <header>
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="javascript:history.back()">
+                <img src="/icon/Back.png" class="back-icon" alt="Back">
+                <span>Back</span>
+            </a>
+        </div>
+
+        <!-- Home Button -->
+        <div class="Home-button">
+            <a href="/Home.html">
+                <img src="/icon/Home.png" class="Home-icon" alt="Home">
+                <span>Home</span>
+            </a>
+        </div>
+
+        <!-- MS Logo -->
+        <div class="ms-logo">
+            <img src="/icon/Ms Logo.png" alt="MS Logo">
+        </div>
+
+        <!-- Hospital Logo -->
+        <div class="hospital-logo">
+            <img src="/icon/hospital-logo.png" alt="Hospital Logo">
+        </div>
+    </header>
+
+    <h1 class="title">Technical Support</h1>
+
+    <div class="grid">
+        <div class="box" onclick="navigateTo('dashboard.html')">
+            <img src="/icon/dashboard.png" alt="Dashboard">
+            <h2>Dashboard</h2>
+            <p>Overview of system performance and key metrics</p>
+            <span>12 Active Monitors</span>
+        </div>
+        <div class="box" onclick="navigateTo('/Technical Support/Reports/REPORTSTYPE1.html')">
+            <img src="/icon/reports.png" alt="Reports">
+            <h2>Reports</h2>
+            <p>Detailed analytics and performance reports</p>
+            <span>28 Available Reports</span>
+        </div>
+        <div class="box" onclick="navigateTo('/Technical Support/Tickets/Tickets.html')">
+            <img src="/icon/ticket.png" alt="Tickets">
+            <h2>Tickets</h2>
+            <p>Manage and track support requests</p>
+            <span>15 Open Tickets</span>
+        </div>
+        <div class="box" onclick="navigateTo('/Technical Support/Maintenance/Maintenance.html')">
+            <img src="/icon/maintenance.png" alt="Maintenance">
+            <h2>Maintenance</h2>
+            <p>Schedule and track system maintenance</p>
+            <span>2 Scheduled Tasks</span>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

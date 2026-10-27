@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mediserve Dashboard</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons"> <!-- Container for navigation buttons -->
+    <div class="back-button"> <!-- Back button container -->
+        <a href="#" onclick="goBack()"> <!-- Back button with a click event -->
+            <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back <!-- Back button icon and text -->
+        </a>
+    </div>
+</div>
+
+<div class="Home-button"> <!-- Home button container -->
+    <a href="../Home/Home.html">
+        <img src="/icon/Home.png" alt="Home Icon"> Home
+      </a>
+              
+</div>
+</div>
+
+<!-- Header (Logos) -->
+<header> <!-- Header section -->
+    <div class="ms-logo"> <!-- MS Logo container -->
+        <img src="/icon/MS Logo.png" alt="MS Logo"> <!-- MS logo -->
+    </div>
+    <div class="hospital-logo"> <!-- Hospital logo container -->
+        <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital"> <!-- Hospital logo -->
+    </div>
+<!-- Row: Server Status + Reports Overview -->
+<div class="grid-two-cols">
+  <!-- Server Status Grouped Inside One Card -->
+  <div class="card">
+    <h3>Server Status</h3>
+    <div class="server-status" style="justify-content: center;">
+      <div style="text-align: center;">
+        <canvas id="activeChart"></canvas>
+        <p class="label">Active Servers</p>
+        <p class="value blue">85%</p>
+      </div>
+      <div style="text-align: center;">
+        <canvas id="inactiveChart"></canvas>
+        <p class="label">Inactive Servers</p>
+        <p class="value gray">15%</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Reports Overview -->
+  <div class="card">
+    <h3>Reports Overview</h3>
+    <canvas id="reportChart"></canvas>
+  </div>
+
+  <script src="Dashboard.js"></script>
+
+  
+  <!-- Critical Devices -->
+  <div class="card">
+    <h3>Critical Devices</h3>
+    <div class="device-grid">
+      <div class="device">
+        <img src="https://img.icons8.com/ios-filled/50/server.png" />
+        <span>Main Server</span>
+        <span class="badge green">NORMAL</span>
+      </div>
+      <div class="device">
+        <img src="https://img.icons8.com/ios-filled/50/database.png" />
+        <span>Backup Storage</span>
+        <span class="badge yellow">WARNING</span>
+      </div>
+      <div class="device">
+        <img src="https://img.icons8.com/ios-filled/50/network.png" />
+        <span>Network Switch</span>
+        <span class="badge red">CRITICAL</span>
+      </div>
+      <div class="device">
+        <img src="https://img.icons8.com/ios-filled/50/data-in-both-directions.png" />
+        <span>Database Server</span>
+        <span class="badge green">NORMAL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Faulty Devices -->
+<div class="card" style="margin-top: 30px;">
+  <h3>Faulty Devices</h3>
+  <table class="device-table">
+    <thead>
+      <tr>
+        <th>TYPE</th>
+        <th>SPECS</th>
+        <th>STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PC</td>
+        <td>Intel i7, 16GB RAM</td>
+        <td><span class="badge red">CRITICAL</span></td>
+      </tr>
+      <tr>
+        <td>Printer</td>
+        <td>HP LaserJet Pro</td>
+        <td><span class="badge yellow">WARNING</span></td>
+      </tr>
+      <tr>
+        <td>Scanner</td>
+        <td>Epson V39</td>
+        <td><span class="badge yellow">WARNING</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Support Tickets -->
+<div class="card" style="margin-top: 30px;">
+  <h3>Support Tickets</h3>
+  <div class="ticket-status">
+    <div class="ticket">
+      <span>Open</span>
+      <div class="bar-container">
+        <div class="bar yellow" style="width: 60%;"></div>
+      </div>
+      <span class="ticket-count">12</span>
+    </div>
+    <div class="ticket">
+      <span>In Progress</span>
+      <div class="bar-container">
+        <div class="bar blue" style="width: 40%;"></div>
+      </div>
+      <span class="ticket-count">8</span>
+    </div>
+    <div class="ticket">
+      <span>Resolved</span>
+      <div class="bar-container">
+        <div class="bar green" style="width: 80%;"></div>
+      </div>
+      <span class="ticket-count">24</span>
+    </div>
+  </div>
+</div>
+
+<!-- Row: Maintenance Overview + Upcoming Maintenance -->
+<div class="grid-two-cols" style="margin-top: 30px;">
+  <!-- Maintenance Chart -->
+  <div class="card">
+    <h3>Maintenance Overview</h3>
+    <canvas id="maintenanceChart"></canvas>
+  </div>
+
+  <!-- Upcoming Maintenance -->
+  <div class="card">
+    <h3>Upcoming Maintenance</h3>
+    <div class="maintenance-item">
+      <div>
+        <strong>Server Backup</strong>
+        <p>2024-02-15</p>
+      </div>
+      <span class="badge red">HIGH</span>
+    </div>
+    <div class="maintenance-item">
+      <div>
+        <strong>System Updates</strong>
+        <p>2024-02-16</p>
+      </div>
+      <span class="badge yellow">MEDIUM</span>
+    </div>
+    <div class="maintenance-item">
+      <div>
+        <strong>Network Maintenance</strong>
+        <p>2024-02-17</p>
+      </div>
+      <span class="badge green">LOW</span>
+    </div>
+  </div>
+</div>
+
+</html>

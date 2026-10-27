@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css"> <!-- Link to external CSS -->
+</head>
+
+<body>
+
+    <!-- Header (Logos) -->
+    <header> <!-- Header section -->
+        <div class="ms-logo"> <!-- MS Logo container -->
+            <img src="/icon/MS Logo.png" alt="MS Logo"> <!-- MS logo -->
+        </div>
+        <div class="hospital-logo"> <!-- Hospital logo container -->
+            <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital"> <!-- Hospital logo -->
+        </div>
+    </header>
+
+
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <!-- Back Button -->
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="javascript:history.back()">
+                <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+            </a>
+        </div>
+
+        <!-- Home Button -->
+        <div class="Home-button">
+            <a href="/Home/Home.html">
+                <img src="/icon/Home.png" alt="Home Icon" class="Home-icon"> Home
+            </a>
+        </div>
+    </div>
+
+    <div class="card"> <!-- Profile card container -->
+        <img src="/icon/user.PNG" alt="User" class="profile-img"> <!-- Profile image -->
+
+        <!-- Username field -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <div>
+                <span><img src="/icon/username.png" alt="Username Icon"></span>
+                <input type="text" id="username" value="john.developer" readonly>
+            </div>
+        </div>
+
+        <!-- Email field -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <div>
+                <span><img src="/icon/email.png" alt="Email Icon"></span>
+                <input type="email" id="email" value="john.developer@example.com" readonly>
+            </div>
+        </div>
+
+        <!-- Role field -->
+        <div class="form-group">
+            <label for="role">Role</label>
+            <div>
+                <span><img src="/icon/role.png" alt="Role Icon"></span>
+                <input type="text" id="role" value="Senior Developer" readonly>
+            </div>
+        </div>
+        <div class="nav-buttons">
+
+            <!-- Reset Password Button inside Anchor -->
+            <div class="reset-password-button">
+                <a href="/authintication/AuthPage/password.html" onclick="resetPasswordClicked()">
+                    <button class="btn btn-primary">
+                        <img src="/icon/password.png" alt="Reset Icon" class="btn-icon"> Reset Password
+                    </button>
+                </a>
+            </div>
+
+            <!-- Sign Out Button inside Anchor -->
+            <div class="sign-out-button">
+                <a href="/authintication/AuthPage/Login.html" onclick="signOutClicked()">
+                    <button class="btn btn-danger">
+                        <img src="/icon/signout.png" alt="Sign Out Icon" class="btn-icon"> Sign Out
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script> <!-- Link to external JavaScript -->
+</body>
+
+</html>

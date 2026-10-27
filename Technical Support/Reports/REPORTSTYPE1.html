@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Reports Type</title>
+
+  <!-- Link to external CSS file for styling -->
+  <link rel="stylesheet" href="ReportsType2.css">
+</head>
+
+<body>
+  <!-- Header section with logo, back button, home button, and hospital logo -->
+  <header>
+    <!-- Left side: MS logo and back button -->
+    <div class="header-left">
+      <div class="ms-logo">
+        <img src="/icon/Ms Logo.png" alt="MS Logo">
+      </div>
+
+      <!-- Back button (functionality handled by JavaScript) -->
+      <div class="back-button">
+        <a href="#">
+          <img src="/icon/Back.png" alt="back-button">
+          Back
+        </a>
+      </div>
+    </div>
+
+    <!-- Center: Home button -->
+    <div class="header-center">
+      <div class="Home-button">
+        <a href="Home.html">
+          <img src="/icon/Home.png" alt="Home-button">
+          Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side: Hospital logo -->
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="Hospital Logo">
+    </div>
+  </header>
+
+  <!-- Main content for selecting report type -->
+  <div class="reports-container">
+    <h1 class="title">Choose Reports Type</h1>
+    <p>Select the appropriate reports type for your request</p>
+
+    <!-- Options for General and Periodic Reports -->
+    <div class="reports-options">
+      
+      <!-- General Reports Option -->
+      <div class="option" data-href="ReportsType2.html">
+        <div class="icon-container">
+          <img src="/icon/GeneralReports.png" alt="General Reports">
+        </div>
+        <h3>General Reports</h3>
+        <p>View and manage standard reports</p>
+      </div>
+
+      <!-- Periodic Reports Option -->
+      <div class="option" data-href="periodic.html">
+        <div class="icon-container">
+          <img src="/icon/PeriodicReports.png" alt="Periodic Reports">
+        </div>
+        <h3>Periodic Reports</h3>
+        <p>Schedule and track recurring reports</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript file that adds interactivity -->
+  <script src="Reports.js"></script>
+</body>
+
+</html>
+

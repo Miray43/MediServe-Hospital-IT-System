@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Maintenance</title>
+    <link rel="stylesheet" href="Regular.css"> <!-- Link to external CSS -->
+</head>
+<body>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <div class="back-button">
+            <a href="#" onclick="goBack()">
+                <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+            </a>
+        </div>
+        <div class="Home-button">
+            <a href="#">
+                <img src="/icon/Home.png" alt="Home Icon" class="Home-icon"> Home
+            </a>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="ms-logo">
+            <img src="/icon/MS Logo.png" alt="MS Logo">
+        </div>
+        <div class="hospital-logo">
+            <img src="/icon/hospital-logo.png" alt="King Abdulaziz Hospital">
+        </div>
+    </header>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h1 class="title">Regular Maintenance</h1>
+        <p class="subtitle">Record device maintenance information</p>
+
+        <form action="#" method="POST">
+            <label for="maintenance-date">Last Maintenance Date <span class="required">*</span></label>
+            <input type="date" id="maintenance-date" name="maintenance-date" required>
+
+            <label>Maintenance Frequency <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="frequency" value="3months" required> Every 3 months</label>
+                <label><input type="radio" name="frequency" value="4months" required> Every 4 months</label>
+            </div>
+
+            <label for="device-type">Device Type <span class="required">*</span></label>
+            <select id="device-type" name="device-type" required>
+                <option value="" disabled selected>Select device type</option>
+                <option value="add-custom">+ Add New Device Type</option>
+            </select>
+
+            <label>Section</label>
+            <select id="section">
+                <option value="" disabled selected>Select section</option>
+                <option value="add-custom">+ Add New Section</option>
+            </select>
+
+            <label for="device-spec">Device Specifications <span class="required">*</span></label>
+            <select id="device-spec" name="device-spec" required>
+                <option value="" disabled selected>Select specification</option>
+                <option value="add-custom">+ Add New Specification</option>
+            </select>
+            <label>Detailed Device Specifications <span class="required">*</span></label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="details" value="Overheats"> Overheats</label>
+                <label><input type="checkbox" name="details" value="Makes noise"> Makes noise</label>
+                <label><input type="checkbox" name="details" value="Working"> Working</label>
+                <label><input type="checkbox" name="details" value="Needs updating"> Needs updating</label>
+                <label><input type="checkbox" name="details" value="Doesn't need updating"> Doesn't need updating</label>
+                <label><input type="checkbox" name="details" value="Not working"> Not working</label>
+                <label><input type="checkbox" name="details" value="Software issues"> Contains software issues</label>
+                <label><input type="checkbox" name="details" value="Fast"> Fast</label>
+                <label><input type="checkbox" name="details" value="No software problems"> Doesn't contain any software problems</label>
+                <label><input type="checkbox" name="details" value="Slow"> Slow</label>
+            </div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" placeholder="Add any additional notes here..."></textarea>
+
+            <button type="submit">Submit Maintenance Log</button>
+        </form>
+    </div>
+<!-- ✅ Popup for Custom Device Specification -->
+<div id="popup-modal" class="popup-overlay" style="display: none;">
+    <div class="popup-content wide-popup">
+      <h3 id="popup-title">Enter Device Specifications</h3>
+      <form id="pc-spec-form">
+        <div id="popup-fields"></div> 
+        <div class="popup-buttons">
+          <button type="button" class="save-btn" onclick="savePCSpec()">Save</button>
+          <button type="button" class="cancel-btn" onclick="closePopup()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ✅ Popup for Adding Generic Options -->
+<div id="generic-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h3 id="generic-popup-title">Add New</h3>
+      <label for="generic-popup-input" id="generic-label">New Value</label>
+      <input type="text" id="generic-popup-input" placeholder="Enter new value..." required />
+      <input type="hidden" id="generic-popup-target-id" />
+      <div class="popup-buttons">
+        <button type="button" class="save-btn" onclick="saveGenericOption()">Save</button>
+        <button type="button" class="cancel-btn" onclick="closeGenericPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+ 
+  
+    
+    <script src="Maintenance.js"></script>
+    <script src="Regular.js"></script>
+</body>
+</html>

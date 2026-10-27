@@ -1,0 +1,450 @@
+/* Reset styles - Remove default margin and padding, set a common font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Title Styling - "External Maintenance" */
+.title {
+    font-size: 24px;
+    color: #111827; /* Primary title color */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Subtitle Styling - "Please fill in the maintenance details below" */
+.subtitle {
+    font-size: 16px;
+    color: #6B7280; /* Gray color */
+    margin-bottom: 20px;
+}
+
+/* Page Background */
+body {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+   
+}
+
+/* MS Logo - Positioned at the top left */
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.ms-logo img {
+    width: 120px;
+}
+
+/* Hospital Logo - Positioned at the top right */
+.hospital-logo {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.hospital-logo img {
+    height: 50px;
+}
+
+/* Back and Home Buttons - Positioned at the top */
+.back-button,
+.Home-button {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    height: 150px;
+}
+
+/* Back Button - Positioned on the left */
+.back-button {
+    left: 20px;
+}
+
+/* Home Button - Centered */
+.Home-button {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Button Links - Styling for Back and Home buttons */
+.back-button a,
+.Home-button a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Button Text Colors */
+.back-button a {
+    color: #4A5568;
+}
+
+.Home-button a {
+    color: #3BAAE0;
+}
+
+/* Icons for Back and Home Buttons */
+.back-icon,
+.Home-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Header - Contains MS and Hospital Logos */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: white;
+}
+
+/* Select Elements Focus Effect - Change border color to blue when clicked */
+.device-box select:focus,
+#reporter-name:focus {
+    border-color: #3ba9e07c !important;
+    outline: none;
+}
+
+/* Form Container - Centralized form with shadow effect */
+.form-container {
+    background-color: white;
+    max-width: 800px;
+    margin: 70px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Section Titles - Bold headings for form sections */
+.section-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Labels - Input field labels */
+label {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Bold text for "Device Information" & "Ticket Information" */
+.device-container,
+.ticket-container {
+    font-weight: bold;
+}
+
+/* Required Field Indicator - Red asterisk */
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+/* Input, Select, and Textarea Styling */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+/* Input Focus Effect - Blue border when active */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #3BAAE0;
+    outline: none;
+}
+
+/* Helper Text for Inputs */
+.input-helper {
+    font-size: 12px;
+    color: #777;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Device Information - Layout for Select Fields */
+.device-container {
+    display: flex;
+    gap: 10px;
+}
+
+/* Individual Device Box - Holds Select Fields */
+.device-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Device Type & Specifications Select Fields - Increase height */
+.device-box select {
+    height: 100;
+    font-size: 14px;
+}
+
+/* Gray Background for Reporter Name, Device Type, and Device Specifications */
+.device-box select,
+#reporter-name {
+    background-color: #EFEFEF;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    color: #333;
+    padding: 10px;
+}
+
+/* Buttons - Container for action buttons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Draft Button - Save as Draft */
+.draft-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 200px;
+}
+
+/* Draft Button Icon */
+.draft-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Right Side Buttons - Cancel & Submit */
+.right-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+/* Cancel Button */
+.cancel-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #3BAAE0;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* حاوية الدروب ليست */
+.dropdown-container {
+    position: relative;
+    margin-bottom: 20px;
+    
+  }
+  .dropdown-wrapper {
+    position: relative; /* 🔧 ضروري لربط الأيقونات بالمكان الصح */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* الايقونات جنب الدروب داون */
+  .icons-container {
+    position: absolute;
+    top: 50%; /* توسيط عمودي */
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 501px;
+  }
+  /* الأيقونة الخاصة بالتعديل داخل الدروب ليست */
+  .edit-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-110%);
+    z-index: 2;
+    cursor: pointer;
+  }
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(calc(-110% + 2px));
+    z-index: 2;
+    cursor: pointer;
+  }
+  .trash-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(calc(-110% + 2px));
+    z-index: 2;
+    cursor: pointer;
+  }
+  /* حتى ما يدخلوا فوق بعض */
+  .dropdown-wrapper select {
+    width: 150%;
+    padding-right: 100px; /* ⬅️ مساحة للأيقونات */
+    box-sizing: border-box;
+    
+  }
+  
+  /* إظهار الـ select بشكل طبيعي */
+  .dropdown-container select {
+    width: 100%;
+    height: 200px; /* قم بزيادة الارتفاع هنا حسب الحاجة */
+    padding: 10px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #EFEFEF;
+    box-sizing: border-box;
+  }
+  
+  
+  
+  /* مربع البحث فوق الدروب داون */
+  .search-input {
+    border: 1px solid black; /* ✅ بوردر أسود */
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  /* تنسيق لـ Popup (نافذة منبثقة) */
+  .popup-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 500px;
+    
+  }
+  .popup-content {
+    background: white;
+    padding: 30px;
+    width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .popup-content label {
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+  }
+  .popup-content input, 
+  .popup-content select {
+    width: 100%;
+    margin: 5px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .popup-buttons button {
+    padding: 5px 10px;
+    font-size: 14px;
+    min-width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3BAAE0;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .popup-buttons button:hover {
+    background-color: #007bb8;
+  }
+  
+  /* جعل الـ search container يغطي العرض بالكامل */
+  .search-container {
+    width: 100%;
+    margin-bottom: -10px; /* مسافة عمودية بين مربع البحث وبقية المكونات */
+  }
+  
+  /* تنسيق مربع البحث بحيث يشبه قائمة الاختيارات */
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+
+.dropdown-wrapper {
+    display: flex;
+    width: 500x;
+    align-items: center;
+    position: relative;
+}
+
+.dropdown-container select {
+    width: 100%;
+    padding: 10px;
+    padding-right: 50px; /* مساحة للأيقونات */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 45px;
+    background-color: #EFEFEF;
+}
+
+
+

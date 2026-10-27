@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Title Styling - "External Maintenance" */
+.title {
+  font-size: 24px;
+  color: #111827; /* Primary title color */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Subtitle Styling - "Please fill in the maintenance details below" */
+.subtitle {
+  font-size: 16px;
+  color: #6B7280; /* Gray color */
+  margin-bottom: 20px;
+}
+
+/* Page Background */
+body {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* MS Logo - Positioned at the top left */
+.ms-logo {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+.ms-logo img {
+  width: 120px;
+}
+
+/* Hospital Logo - Positioned at the top right */
+.hospital-logo {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.hospital-logo img {
+  height: 50px;
+}
+
+/* Back and Home Buttons - Positioned at the top */
+.back-button,
+.Home-button {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  height: 150px;
+}
+
+/* Back Button - Positioned on the left */
+.back-button {
+  left: 20px;
+}
+
+/* Home Button - Centered */
+.Home-button {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Button Links - Styling for Back and Home buttons */
+.back-button a,
+.Home-button a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Button Text Colors */
+.back-button a {
+  color: #4A5568;
+}
+
+.Home-button a {
+  color: #3BAAE0;
+}
+
+/* Icons for Back and Home Buttons */
+.back-icon,
+.Home-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Header - Contains MS and Hospital Logos */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: white;
+}
+
+.server-status {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 200px;
+    text-align: center;
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: 250px !important;
+  }
+  
+  
+  .label {
+    font-weight: 600;
+    margin-top: 15px;
+  }
+  
+  .value {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  
+  .value.blue {
+    color: #1d8cf8;
+  }
+  
+  .value.gray {
+    color: #8898aa;
+  }
+  .grid-two-cols {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    flex: 1;
+    min-width: 350px;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .device-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .device {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+  
+  .device img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .badge {
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .green {
+    background-color: #00b894;
+  }
+  
+  .yellow {
+    background-color: #fbc531;
+  }
+  
+  .red {
+    background-color: #e84118;
+  }
+  
+  .device-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .device-table th,
+  .device-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .device-table td .badge {
+    margin-left: 5px;
+  }
+  .ticket-status {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .ticket {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .bar-container {
+    background-color: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  
+  .bar {
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .ticket-count {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .maintenance-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f9fb;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .maintenance-item p {
+    margin: 0;
+    font-size: 13px;
+    color: #888;
+  }
+  
+  .bar.yellow {
+    background-color: #fbc531;
+  }
+  
+  .bar.blue {
+    background-color: #1d8cf8;
+  }
+  
+  .bar.green {
+    background-color: #00b894;
+  }
+  
+  

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Technology Solutions</title>
+    <link rel="stylesheet" href="/Home/Home.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-40">
+
+    <header class="relative bg-white px-6 py-4 w-full flex items-center justify-between">
+        <!-- يسار: شعار MS -->
+        <div class="absolute left-6 top-4">
+            <img src="/icon/MS Logo.png" alt="MS Logo" class="w-[120px]" />
+        </div>
+
+        <!-- وسط: الأيقونات -->
+        <nav class="mx-auto flex space-x-6 items-center relative top-[8px]">
+
+            <a href="/Home/Home.html" class="flex items-center gap-2 text-gray-700 hover:underline cursor-pointer">
+                <img src="/icon/Home-b.png" alt="Home" class="w-5 h-5" />
+                <span>Home</span>
+            </a>
+
+            <!-- اللغة مع سهم -->
+            <div class="relative group cursor-pointer">
+                <div class="flex items-center gap-2 text-gray-700">
+                    <img src="/icon/language.png" alt="Language" class="w-5 h-5" />
+                    <span>English</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+                <!-- القائمة المنسدلة -->
+                <ul class="absolute hidden group-hover:block bg-white shadow rounded mt-2 py-1 w-24 z-10">
+                    <li><a href="#" class="block px-4 py-1 hover:bg-gray-100">English</a></li>
+                    <li><a href="#" class="block px-4 py-1 hover:bg-gray-100">عربي</a></li>
+                </ul>
+            </div>
+
+            <a href="/profile/profile.html"
+                class="flex items-center gap-2 text-gray-700 hover:underline cursor-pointer">
+                <img src="/icon/profile.png" alt="Profile" class="w-5 h-5" />
+                <span>Profile</span>
+            </a>
+
+            <a href="/Notifications/Notifications.html"
+                class="flex items-center gap-2 text-gray-700 hover:underline cursor-pointer relative">
+                <img src="/icon/notifications.png" alt="Notifications" class="w-5 h-5" />
+                <span>Notifications</span>
+                <span id="notif-count"
+                    class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2"></span>
+            </a>
+        </nav>
+
+        <!-- يمين: شعار المستشفى -->
+        <div class="absolute right-6 top-2">
+            <img src="/icon/hospital-logo.png" alt="Hospital Logo" class="h-[50px]" />
+        </div>
+    </header>
+
+
+    <!-- المحتوى الرئيسي -->
+    <main class="p-10 max-w-6xl mx-auto mt-4">
+
+        <div class="main-text">
+            <h1 class="text-3xl font-semibold">Enterprise Technology Solutions</h1>
+            <p class="text-gray-500 mt-2">Comprehensive technical services for modern businesses, empowering your
+                digital transformation with cutting-edge solutions.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-10">
+            <div class="service-box" data-url="/Technical Support/support.html">
+                <img src="/icon/image_2.png" alt="Support" />
+                <h2>Technical Support</h2>
+                <p>24/7 expert technical assistance for all your IT infrastructure needs</p>
+            </div>
+
+            <div class="service-box" data-url="security-solutions.html">
+                <img src="/icon/image_1.png" alt="Security" />
+                <h2>Security Solutions</h2>
+                <p>Advanced cybersecurity measures to protect your digital assets</p>
+            </div>
+
+            <div class="service-box" data-url="network-infrastructure.html">
+                <img src="/icon/image_3.png" alt="Network" />
+                <h2>Network Infrastructure</h2>
+                <p>Robust networking solutions for seamless connectivity</p>
+            </div>
+
+            <div class="service-box" data-url="application-services.html">
+                <img src="/icon/image_4.png" alt="Application" />
+                <h2>Application Services</h2>
+                <p>Custom application development and maintenance</p>
+            </div>
+
+            <div class="service-box" data-url="data-center-solutions.html">
+                <img src="/icon/image_5.png" alt="Data Center" />
+                <h2>Data Center Solutions</h2>
+                <p>State-of-the-art data center management and hosting</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="/Home/Home.js">
+    </script>
+
+</body>
+
+</html>

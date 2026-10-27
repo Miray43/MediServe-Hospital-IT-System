@@ -1,0 +1,97 @@
+/* هيدر زي الصيانة */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+
+.ms-logo {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.ms-logo img {
+    width: 120px;
+}
+
+.hospital-logo {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+
+.hospital-logo img {
+    height: 50px;
+}
+
+.main-text {
+    text-align: left;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; /* ← صارت أقرب للهيدر */
+    margin-bottom: 30px;
+}
+
+
+/* البطاقات */
+.service-box {
+    background: #ffffff;
+    color: #222;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ← يجعل الصورة في اليسار */
+    justify-content: center;
+}
+
+.service-box:hover {
+    background: linear-gradient(135deg, #172F4A, #3BAAE0);
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.service-box:hover h2,
+.service-box:hover p {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-box:hover img {
+    filter: brightness(0) invert(1);
+    transform: scale(1.1);
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.service-box img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.service-box h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-box p {
+    font-size: 1rem;
+    color: #010101;
+    transition: color 0.3s ease-in-out;
+}

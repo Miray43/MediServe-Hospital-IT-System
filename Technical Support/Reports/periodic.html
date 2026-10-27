@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maintenance Dashboard</title>
+  <link rel="stylesheet" href="periodic.css" />
+  <link rel="stylesheet" href="/Maintenance.CSS" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="ms-logo">
+      <img src="/icon/Ms Logo.png" alt="MS Logo" />
+    </div>
+
+    <div class="hospital-logo">
+      <img src="/icon/hospital-logo.png" alt="Hospital Logo" />
+    </div>
+
+    <div class="back-button">
+      <a href="#">
+        <img src="/icon/Back.png" class="back-icon" alt="back" />
+        Back
+      </a>
+    </div>
+
+    <div class="home-button">
+      <a href="Home.html">
+        <img src="/icon/Home.png" class="home-icon" alt="Home" />
+        Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Maintenance Progress -->
+    <div class="progress-container">
+      <!-- 3-Month Maintenance -->
+      <div class="progress-box">
+        <div class="progress-header">
+          <h3>3-Month Maintenance</h3>
+          <span class="progress-count progress-count-3months">0/0</span>
+        </div>
+        <div class="progress-bar">
+          <div class="completed progress-bar-3months" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- 4-Month Maintenance -->
+      <div class="progress-box">
+        <div class="progress-header">
+          <h3>4-Month Maintenance</h3>
+          <span class="progress-count progress-count-4months">0/0</span>
+        </div>
+        <div class="progress-bar">
+          <div class="pending progress-bar-4months" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schedule Tabs -->
+    <div class="schedule-tabs">
+      <button class="active" id="btn-3months">3-Month Schedule</button>
+      <button id="btn-4months">4-Month Schedule</button>
+    </div>
+
+    <!-- Maintenance Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Device Name</th>
+          <th>Category</th>
+          <th>Last Maintenance</th>
+          <th>Next Due Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="maintenance-table-body">
+        <!-- Data will be inserted from JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Scripts -->
+  <script src="Reports.js"></script>
+  <script src="periodic.js"></script>
+</body>
+</html>

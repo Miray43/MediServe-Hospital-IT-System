@@ -1,0 +1,204 @@
+/* Reset page styles */
+body, html {
+    height: 100%; /* Set full height for page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Set default font */
+    background-color: white; /* Set background color */
+    text-align: center; /* Center text by default */
+}
+
+/* Back and Home buttons */
+.back-button, 
+.Home-button {
+    position: absolute; /* Position the buttons absolutely */
+    top: 20px; /* Place buttons near the top */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align icons and text */
+    gap: 8px; /* Space between icon and text */
+    width: fit-content; /* Adjust width based on content */
+    height: 150px; /* Set button height */
+}
+
+/* Back button (left side) */
+.back-button {
+    left: 20px; /* Align to left */
+} 
+
+/* Home button (centered) */
+.Home-button {
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust centering */
+}
+
+/* Button links */
+.back-button a,
+.Home-button a {
+    text-decoration: none; /* Remove default underline */
+    font-size: 14px; /* Set font size */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align icon and text */
+    gap: 5px; /* Space between icon and text */
+}
+
+/* Button text colors */
+.back-button a {
+    color: #4A5568; /* Gray color for back button */
+}
+
+.Home-button a {
+    color: #3BAAE0; /* Blue color for home button */
+}
+
+/* Icons for Back and Home buttons */
+.back-icon, 
+.Home-icon {
+    width: 20px; /* Set icon width */
+    height: 20px; /* Set icon height */
+}
+
+/* Page title */
+.title {
+    font-size: 28px; /* Set title font size */
+    font-weight: bold; /* Make title bold */
+    margin-top: 100px; /* Space between buttons and title */
+    margin-bottom: 50px; /* Space between title and options */
+}
+
+/* Header */
+header {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Align elements to edges */
+    align-items: center; /* Center elements vertically */
+    padding: 20px; /* Add padding */
+    width: 100%; /* Full width */
+    position: relative; /* Relative positioning */
+}
+
+/* MS Logo (left side) */
+.ms-logo {
+    position: absolute; /* Position absolutely */
+    left: 5px; /* Set left distance */
+    top: 10px; /* Set top distance */
+}
+
+.ms-logo img {
+    width: 120px; /* Set logo width */
+}
+
+/* Hospital Logo (right side) */
+.hospital-logo {
+    position: absolute; /* Position absolutely */
+    right: 40px; /* Set right distance */
+    top: 5px; /* Set top distance */
+}
+
+.hospital-logo img {
+    height: 50px; /* Set logo height */
+}
+
+/* Maintenance container */
+.maintenance-container {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center elements */
+    align-items: center; /* Align items vertically */
+    width: 80%; /* Set width */
+    margin: auto; /* Center horizontally */
+}
+
+/* Options layout */
+.maintenance-options {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center elements */
+    gap: 28px; /* Space between options */
+}
+
+/* Option box styles */
+.option {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px; /* Add padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    cursor: pointer; /* Show pointer cursor */
+    text-align: center; /* Center text */
+    width: 250px; /* Set box width */
+    height: 200px; /* Increase height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack the icon and text vertically */
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+}
+
+/* Option icon size */
+.icon-container img {
+    width: 50px; /* Set the icon size */
+    height: 50px; /* Set the icon size */
+    margin-bottom: 10px; /* Add some space below the icon */
+}
+
+/* Hover effect */
+.option:hover {
+    background-color: #EFF6FF; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2); /* Add stronger shadow */
+}
+
+/* Click effect */
+.option:active {
+    background-color: #EFF6FF; /* Maintain background color when clicked */
+}
+
+
+/* Responsive design for tablets */
+@media screen and (max-width: 768px) {
+    .back-button {
+        left: 10px; /* Adjust button position */
+    }
+    
+    .Home-button {
+        left: 50%; /* Keep centered */
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 24px; /* Adjust title font size */
+        margin-top: 120px; /* Adjust spacing */
+        margin-bottom: 50px; /* Adjust spacing */
+    }
+
+    .maintenance-container {
+        width: 90%; /* Adjust width */
+    }
+
+    .option {
+        width: 160px; /* Reduce option box width */
+    }
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 480px) {
+    .back-button {
+        left: 5px; /* Adjust button position */
+    }
+
+    .Home-button {
+        left: 50%; /* Keep centered */
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 22px; /* Adjust font size */
+        margin-top: 100px; /* Adjust spacing */
+        margin-bottom: 40px; /* Adjust spacing */
+    }
+
+    .maintenance-options {
+        flex-direction: column; /* Stack options vertically */
+        gap: 15px; /* Adjust spacing */
+    }
+
+    .option {
+        width: 90%; /* Set full width */
+    }
+}

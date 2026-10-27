@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive layout on different devices -->
+    <title>Ticket Selection</title> <!-- Page title -->
+    <link rel="stylesheet" href="Tickets.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <!-- 🔁 Navigation Buttons (Back & Home) -->
+    <div class="nav-buttons">
+        <!-- Back Button -->
+        <div class="back-button">
+            <a href="#" onclick="goBack()"> <!-- JavaScript function for going back -->
+                <img src="/icon/Back.png" alt="Back Icon" class="back-icon"> Back
+            </a>
+        </div>
+
+        <!-- Home Button -->
+        <div class="home-button">
+            <a href="Home.html">
+                <img src="/icon/Home.png" alt="Home Icon" class="home-icon"> Home
+            </a>
+        </div>
+    </div>
+
+    <!-- 🏥 Header Section (Logos) -->
+    <header>
+        <!-- Organization Logo -->
+        <div class="ms-logo">
+            <img src="/icon/Ms Logo.png" alt="MC Logo">
+        </div>
+
+        <!-- Hospital Logo -->
+        <div class="hospital-logo">
+            <img src="/icon/hospital-logo.png" alt="Hospital Logo">
+        </div>
+    </header>
+
+    <!-- 🧾 Page Title -->
+    <h1 class="title">Choose Ticket Type</h1>
+
+    <!-- Short description -->
+    <p class="description">Select the appropriate ticket type for your request</p>
+
+    <!-- 🎫 Ticket Type Options -->
+    <div class="ticket-container">
+        <div class="ticket-frame">
+            <div class="ticket-options">
+
+                <!-- Internal Ticket Option -->
+                <div class="option container1" data-page="internal.html"
+                    onmouseover="changeImage(this, 'IT-hover.png')"
+                    onmouseout="changeImage(this, 'IT.png')">
+                    <div class="icon-container">
+                        <img src="/icon/external-hover.png" alt="Internal Ticket Icon">
+                    </div>
+                    <p>Internal Ticket</p>
+                </div>
+
+                <!-- External Ticket Option -->
+                <div class="option container2" data-page="external.html"
+                    onmouseover="changeImage(this, 'ET-hover.png')"
+                    onmouseout="changeImage(this, 'ET.png')">
+                    <div class="icon-container">
+                        <img src="/icon/ET.png" alt="External Ticket Icon">
+                    </div>
+                    <p>External Ticket</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 📜 JavaScript File -->
+    <script src="Tickets.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
