@@ -62,3 +62,39 @@ MediServe is a web system for a hospital's technical-support team. It tracks the
 
 **Mira Alharbi**: Full-stack developer (team project)
 
+<!-- Paste this section into README.md after "Features", and replace step 2 of "Getting Started" with the version below. -->
+
+## Authentication and roles
+
+The API uses **bcrypt** password hashing, **JWT** bearer tokens and **role checks**.
+
+| Role | Can do |
+|---|---|
+| `viewer` | Read data (all `GET` routes) |
+| `engineer` | Read, plus create and update maintenance reports, tickets and devices |
+| `admin` | Everything, including the configurable lookup tables (departments, device models, problem types, specs) and changing user roles |
+
+- `POST /auth/signup` with `{ user_name, email, password }` creates an account. The password is stored only as a
+  bcrypt hash (12 rounds) in the `app_users` table, which the server creates on start-up.
+  New accounts are `viewer`. The **first account ever created becomes `admin`**, so create it yourself right after setup.
+- `POST /auth/login` with `{ email, password }` returns `{ token, user }`. Tokens expire after 8 hours (`JWT_EXPIRES_IN`).
+- Send `Authorization: Bearer <token>` on every other request. Missing or invalid tokens get `401`, wrong role gets `403`.
+- `PUT /auth/users/:id/role` with `{ "role": "engineer" }` (admin only) promotes or demotes a user.
+- `GET /auth/me` returns the current user.
+
+Known limits: files in `/uploads` are still served without a login (the browser opens them by direct link),
+there is no rate limiting on login, and password reset is not implemented.
+
+### Getting Started (updated step 2)
+
+2. **Configure the environment**: copy `backend/.env.example` to `backend/.env`, fill in your MySQL credentials and set
+   `JWT_SECRET` to a long random string (the server refuses to start without one):
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
+   ```
+
+Frontend: `authintication/AuthPage/Login.html` now calls the signup and login endpoints and stores the token in
+`sessionStorage`. Every page that calls the API must load `authintication/auth-client.js` (it adds the token to requests):
+```html
+<script src="/authintication/auth-client.js"></script>
+```

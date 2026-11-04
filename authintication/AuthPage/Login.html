@@ -120,7 +120,17 @@
       // If all inputs are valid
       else {
         errorMessage.textContent = "";
-        alert("Sign-up successful!");
+        fetch("http://localhost:5050/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_name: username, email: email, password: password }),
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (!res.ok) { errorMessage.textContent = res.d.error || "Sign-up failed"; return; }
+            alert("Account created. You can log in now.");
+          })
+          .catch(function () { errorMessage.textContent = "Cannot reach the server."; });
       }
     });
 
@@ -137,7 +147,19 @@
         errorMessage.textContent = "All fields are required!";
       } else {
         errorMessage.textContent = "";
-        alert("Login successful!");
+        fetch("http://localhost:5050/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, password: password }),
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (!res.ok) { errorMessage.textContent = res.d.error || "Login failed"; return; }
+            sessionStorage.setItem("mediserve_token", res.d.token);
+            sessionStorage.setItem("mediserve_user", JSON.stringify(res.d.user));
+            window.location.href = "../../Home/Home.html";
+          })
+          .catch(function () { errorMessage.textContent = "Cannot reach the server."; });
       }
     });
   </script>
