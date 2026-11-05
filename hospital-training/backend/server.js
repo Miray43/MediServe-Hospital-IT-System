@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./db");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const rateLimit = require("express-rate-limit");
 const path = require("path");
 
 const app = express();
@@ -14,6 +17,170 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.get("/", (req, res) => {
   res.send("🚀 Server is running!");
 });
+
+// ─────────────────────────────────────────────────────────────
+// Authentication & authorization (bcrypt + JWT + role checks)
+// ─────────────────────────────────────────────────────────────
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET || JWT_SECRET.length < 32) {
+  console.error("JWT_SECRET must be set in .env (at least 32 characters).");
+  process.exit(1);
+}
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "8h";
+const BCRYPT_ROUNDS = 12;
+const ROLES = ["admin", "engineer", "viewer"];
+// A real hash of a throwaway string, so login takes the same time
+// whether or not the email exists (avoids user enumeration by timing).
+const DUMMY_HASH = bcrypt.hashSync("not-a-real-password", BCRYPT_ROUNDS);
+
+// Users live in their own table. Passwords are stored only as bcrypt hashes.
+db.query(
+  `CREATE TABLE IF NOT EXISTS app_users (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     user_name VARCHAR(100) NOT NULL,
+     email VARCHAR(190) NOT NULL UNIQUE,
+     password_hash VARCHAR(100) NOT NULL,
+     role ENUM('admin','engineer','viewer') NOT NULL DEFAULT 'viewer',
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   )`,
+  (err) => {
+    if (err) console.error("Could not ensure app_users table:", err.message);
+  }
+);
+
+const signToken = (user) =>
+  jwt.sign({ sub: user.id, role: user.role, name: user.user_name }, JWT_SECRET, {
+    algorithm: "HS256",
+    expiresIn: JWT_EXPIRES_IN,
+  });
+
+// Verifies "Authorization: Bearer <token>" and attaches req.user.
+function requireAuth(req, res, next) {
+  const header = req.headers.authorization || "";
+  const [scheme, token] = header.split(" ");
+  if (scheme !== "Bearer" || !token) {
+    return res.status(401).json({ error: "Authentication required" });
+  }
+  try {
+    const payload = jwt.verify(token, JWT_SECRET, { algorithms: ["HS256"] });
+    req.user = { id: payload.sub, role: payload.role, name: payload.name };
+    next();
+  } catch (e) {
+    return res.status(401).json({ error: "Invalid or expired token" });
+  }
+}
+
+// Role-check middleware factory: requireRole("admin", "engineer")
+function requireRole(...allowed) {
+  return (req, res, next) => {
+    if (!req.user) return res.status(401).json({ error: "Authentication required" });
+    if (!allowed.includes(req.user.role)) {
+      return res.status(403).json({ error: "You do not have permission to do this" });
+    }
+    next();
+  };
+}
+
+const EMAIL_RE = /^\S+@\S+\.\S+$/;
+
+// Slow down password guessing and account spam: 10 attempts / 15 min per IP.
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: Number(process.env.AUTH_RATE_LIMIT || 10),
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many attempts, try again later" },
+});
+app.use(["/auth/login", "/auth/signup"], authLimiter);
+
+// POST /auth/signup  { user_name, email, password }
+// New accounts are "viewer". The very first account ever created becomes
+// "admin" so the system can be bootstrapped; admins promote others later.
+app.post("/auth/signup", (req, res) => {
+  const user_name = String(req.body.user_name || "").trim();
+  const email = String(req.body.email || "").trim().toLowerCase();
+  const password = String(req.body.password || "");
+  if (!user_name || !EMAIL_RE.test(email)) {
+    return res.status(400).json({ error: "A name and a valid email are required" });
+  }
+  if (password.length < 8 || password.length > 72) {
+    return res.status(400).json({ error: "Password must be 8 to 72 characters" });
+  }
+  db.query("SELECT COUNT(*) AS n FROM app_users", async (err, rows) => {
+    if (err) return res.status(500).json({ error: "Server error" });
+    try {
+      const role = rows[0].n === 0 ? "admin" : "viewer";
+      const hash = await bcrypt.hash(password, BCRYPT_ROUNDS);
+      db.query(
+        "INSERT INTO app_users (user_name, email, password_hash, role) VALUES (?, ?, ?, ?)",
+        [user_name, email, hash, role],
+        (err2, result) => {
+          if (err2) {
+            if (err2.code === "ER_DUP_ENTRY") {
+              return res.status(409).json({ error: "Email is already registered" });
+            }
+            return res.status(500).json({ error: "Server error" });
+          }
+          res.status(201).json({ message: "Account created", userId: result.insertId, role });
+        }
+      );
+    } catch (e) {
+      res.status(500).json({ error: "Server error" });
+    }
+  });
+});
+
+// POST /auth/login  { email, password }  ->  { token, user }
+app.post("/auth/login", (req, res) => {
+  const email = String(req.body.email || "").trim().toLowerCase();
+  const password = String(req.body.password || "");
+  db.query("SELECT * FROM app_users WHERE email = ?", [email], async (err, rows) => {
+    if (err) return res.status(500).json({ error: "Server error" });
+    const user = rows && rows[0];
+    try {
+      const ok = await bcrypt.compare(password, user ? user.password_hash : DUMMY_HASH);
+      if (!user || !ok) return res.status(401).json({ error: "Invalid email or password" });
+      res.json({
+        token: signToken(user),
+        user: { id: user.id, name: user.user_name, email: user.email, role: user.role },
+      });
+    } catch (e) {
+      res.status(500).json({ error: "Server error" });
+    }
+  });
+});
+
+// Everything below this line requires a valid token.
+app.use(requireAuth);
+
+app.get("/auth/me", (req, res) => res.json({ user: req.user }));
+
+// Admin-only: change a user's role.
+app.put("/auth/users/:id/role", requireRole("admin"), (req, res) => {
+  const { role } = req.body;
+  if (!ROLES.includes(role)) return res.status(400).json({ error: "Unknown role" });
+  db.query("UPDATE app_users SET role = ? WHERE id = ?", [role, req.params.id], (err, r) => {
+    if (err) return res.status(500).json({ error: "Server error" });
+    if (!r.affectedRows) return res.status(404).json({ error: "User not found" });
+    res.json({ message: "Role updated" });
+  });
+});
+
+// Role policy for the existing routes (applied before they are reached):
+//   viewer   - read-only (GET)
+//   engineer - read + create/update maintenance reports, tickets, devices
+//   admin    - everything, including the configurable lookup tables
+const ADMIN_ONLY_WRITES = new RegExp(
+  "^/(add-options?-[a-z]+|add-device-specification|add-device-model|add-os|add-ram|" +
+    "add-cpu|add-generation|add-department|delete-option-general|" +
+    "update-option-general|edit-option-general)$"
+);
+app.use((req, res, next) => {
+  if (req.method === "GET" || req.method === "HEAD") return next();
+  if (ADMIN_ONLY_WRITES.test(req.path)) return requireRole("admin")(req, res, next);
+  return requireRole("admin", "engineer")(req, res, next);
+});
+// ─────────────────────────────────────────────────────────────
 
 const multer = require("multer");
 
