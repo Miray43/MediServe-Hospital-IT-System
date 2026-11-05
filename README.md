@@ -83,7 +83,8 @@ The API uses **bcrypt** password hashing, **JWT** bearer tokens and **role check
 - `GET /auth/me` returns the current user.
 
 Known limits: files in `/uploads` are still served without a login (the browser opens them by direct link),
-there is no rate limiting on login, and password reset is not implemented.
+anyone can sign up (as a read-only `viewer`; an admin promotes others), and password reset is not implemented.
+Login and signup are rate limited (10 attempts per 15 minutes per IP). Tested against a real MariaDB (MySQL-compatible) database: signup, login, wrong password, duplicate email, token tampering, role checks (viewer blocked from writes, admin-only role changes) and the rate limit.
 
 ### Getting Started (updated step 2)
 

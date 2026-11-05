@@ -3,6 +3,7 @@ const cors = require("cors");
 const db = require("./db");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const rateLimit = require("express-rate-limit");
 const path = require("path");
 
 const app = express();
@@ -81,6 +82,16 @@ function requireRole(...allowed) {
 }
 
 const EMAIL_RE = /^\S+@\S+\.\S+$/;
+
+// Slow down password guessing and account spam: 10 attempts / 15 min per IP.
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: Number(process.env.AUTH_RATE_LIMIT || 10),
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many attempts, try again later" },
+});
+app.use(["/auth/login", "/auth/signup"], authLimiter);
 
 // POST /auth/signup  { user_name, email, password }
 // New accounts are "viewer". The very first account ever created becomes
